@@ -46,7 +46,9 @@
                             <p class="d-inline-block">{{ $mediaVoto }}</p>
                             <div>
                                 <h5 class="d-inline-block">Sponsorizzazione:</h5>
-                                <p class="d-inline-block">{{ $user->doctor->sponsorships[0]->name }}</p>
+                                @if ($user->doctor->sponsorships)
+                                 <p class="d-inline-block">{{ $user->doctor->sponsorships[0]->name }}</p>
+                                @endif
                             </div>
                         </div>
                     </div>
