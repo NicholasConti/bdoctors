@@ -18,7 +18,7 @@
                     </div>
                     <h4 class="mt-4">Description</h4>
                     <p>{{ $user->doctor->description }}</p>
-                    <h4 class="mt-4">Specializzations</h4>
+                    <h4 class="mt-4">Specializations</h4>
                     <?php $tmp = ''; ?>
                     <p>
                         @forelse ($user->doctor->specializations as $item)
@@ -53,15 +53,15 @@
                 @csrf
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="telephone" placeholder="Telephone"
-                        aria-label="Telephone" aria-describedby="basic-addon1">
+                        aria-label="Telephone" aria-describedby="basic-addon1" value="{{ old('telephone') }}">
                 </div>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="performance" placeholder="Performance"
-                        aria-label="Performance" aria-describedby="basic-addon1">
+                        aria-label="Performance" aria-describedby="basic-addon1" value="{{ old('performance') }}">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                    <textarea class="form-control" id="description" rows="3" name="description">{{ old('description') }}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="cv" class="form-label">Curriculum</label>
