@@ -20,21 +20,21 @@
                     <p>{{ $user->doctor->description }}</p>
                     <h4 class="mt-4">Specializzations</h4>
                     <p>
-                        <?php $tmp='' ?>
+                        <?php $tmp = ''; ?>
                         @foreach ($user->doctor->specializations as $item)
-                           <?php $tmp.=$item->name.", " ?>
+                            <?php $tmp .= $item->name . ', '; ?>
                         @endforeach
-                        {{ rtrim($tmp, ", ") }}
+                        {{ rtrim($tmp, ', ') }}
                     </p>
-                    <div class="mt-4">
-                        <h5>Curriculum</h5>
-                        <object data="{{ asset('storage/' . $user->doctor->cv) }}" type="application/pdf" width="100%"
-                            height="500px">
-                        </object>
-                    </div>
+                    <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-primary mb-4">Edit profile</a>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <h5>Curriculum</h5>
+                    <object data="{{ asset('storage/' . $user->doctor->cv) }}" type="application/pdf" width="100%"
+                        height="500px">
+                    </object>
                 </div>
             </div>
-            <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-primary mb-4">Edit profile</a>
         @else
             @if ($errors->any())
                 <div class="alert alert-danger mb-4 mt-4">
@@ -72,8 +72,10 @@
                     @foreach ($spec as $item)
                         <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
-                                id="{{ $item->name }}" name="specialization[]" {{ in_array($item->id, old('specialization', [])) ? 'checked' : '' }}>
-                            <label class="form-check-label stretched-link" for="{{ $item->name }}">{{ $item->name }}</label>
+                                id="{{ $item->name }}" name="specialization[]"
+                                {{ in_array($item->id, old('specialization', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label stretched-link"
+                                for="{{ $item->name }}">{{ $item->name }}</label>
                         </li>
                     @endforeach
                 </ul>
