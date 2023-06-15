@@ -42,7 +42,7 @@
                             @foreach ($user->doctor->votes as $item)
                                 <?php $mediaVoto += $item->vote; ?>
                             @endforeach
-                            <?php $mediaVoto = $mediaVoto / count($user->doctor->votes); ?>
+                            <?php if ($mediaVoto>0) $mediaVoto = $mediaVoto / count($user->doctor->votes); ?>
                             <p class="d-inline-block">{{ $mediaVoto }}</p>
                             <div>
                                 <h5 class="d-inline-block">Sponsorizzazione:</h5>
