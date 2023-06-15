@@ -1,5 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+#app{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.hov{
+    &:hover {
+        border-bottom: 1px solid #005a97;
+    }
+}
 .profile-img{
 
     img{
@@ -7,9 +16,5 @@
         height: 200px;
         border-radius: 50%;
         object-fit: cover;
-    }
-
-    div{
-
     }
 }
