@@ -89,8 +89,7 @@
                         @foreach ($spec as $item)
                             <li class="list-group-item">
                                 <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
-                                    id="{{ $item->name }}" name="specialization[]"
-                                    {{ $user->doctor->specializations->contains($item->id) ? 'checked' : '' }}>
+                                    id="{{ $item->name }}" name="specialization[]">
                                 <label class="form-check-label stretched-link"
                                     for="{{ $item->name }}">{{ $item->name }}</label>
                             </li>

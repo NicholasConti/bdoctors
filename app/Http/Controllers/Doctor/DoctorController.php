@@ -46,27 +46,27 @@ class DoctorController extends Controller
             'cv' => 'required|mimes:pdf'
         ]);
 
-        $doc=$request->all();
-        $doctor=new Doctor();
+        $doc = $request->all();
+        $doctor = new Doctor();
 
-        if(isset($doc['image'])){
-            $doc['image']=Storage::put('uploads',$doc['image']);
+        if (isset($doc['image'])) {
+            $doc['image'] = Storage::put('uploads', $doc['image']);
         }
-        if(isset($doc['cv'])){
-            $doc['cv']=Storage::put('uploads',$doc['cv']);
+        if (isset($doc['cv'])) {
+            $doc['cv'] = Storage::put('uploads', $doc['cv']);
         }
 
 
         $doctor->fill($doc);
         $doctor->save();
-        if(isset($doc['specialization'])){
+        if (isset($doc['specialization'])) {
             $doctor->specializations()->sync($doc['specialization']);
         }
         $user = auth()->user();
-        $user->doctor_id=$doctor->id;
+        $user->doctor_id = $doctor->id;
         $user->update();
 
-        return view('doctor.dashboard',compact('user'));
+        return view('doctor.dashboard', compact('user'));
     }
 
     /**
@@ -77,7 +77,6 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-
     }
 
     /**
@@ -88,10 +87,10 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-        $doc=Doctor::findOrFail($id);
-        $spec=Specialization::all();
+        $doc = Doctor::findOrFail($id);
+        $spec = Specialization::all();
 
-        return view('doctor.details',compact('doc','spec'));
+        return view('doctor.details', compact('doc', 'spec'));
     }
 
     /**
@@ -111,26 +110,29 @@ class DoctorController extends Controller
             'cv' => 'mimes:pdf'
         ]);
 
-        $data=$request->all();
-        $doc=Doctor::findOrFail($id);
-        if (isset($data['image'])){
+        $data = $request->all();
+        $doc = Doctor::findOrFail($id);
+
+        if (isset($data['image'])) {
             Storage::delete($doc->image);
-            $data['image']=Storage::put('uploads',$data['image']);
+            $data['image'] = Storage::put('uploads', $data['image']);
         }
-        if (isset($data['cv'])){
+        if (isset($data['cv'])) {
             Storage::delete($doc->cv);
-            $data['cv']=Storage::put('uploads',$data['cv']);
+            $data['cv'] = Storage::put('uploads', $data['cv']);
         }
         $doc->fill($data);
         $doc->update();
 
-        if(isset($data['specialization'])){
+        if (isset($data['specialization'])) {
             $doc->specializations()->sync($data['specialization']);
+        } else {
+            $doc->specializations()->detach();
         }
 
-        $user=$doc->user;
+        $user = $doc->user;
 
-        return view('doctor.dashboard',compact('user'));
+        return view('doctor.dashboard', compact('user'));
     }
 
     /**
