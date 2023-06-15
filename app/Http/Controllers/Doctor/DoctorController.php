@@ -107,14 +107,23 @@ class DoctorController extends Controller
             'telephone' => 'required|max:15|string',
             'performance' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            /*'image' => 'required|image',
-            'cv' => 'required|mimes:pdf'*/
+            'image' => 'image',
+            'cv' => 'mimes:pdf'
         ]);
 
         $data=$request->all();
         $doc=Doctor::findOrFail($id);
+        if (isset($data['image'])){
+            Storage::delete($doc->image);
+            $data['image']=Storage::put('uploads',$data['image']);
+        }
+        if (isset($data['cv'])){
+            Storage::delete($doc->cv);
+            $data['cv']=Storage::put('uploads',$data['cv']);
+        }
         $doc->fill($data);
         $doc->update();
+
         if(isset($data['specialization'])){
             $doc->specializations()->sync($data['specialization']);
         }

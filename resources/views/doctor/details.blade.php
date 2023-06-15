@@ -41,15 +41,34 @@
                 <input class="form-control" type="file" id="image" name="image">
             </div>
 
+
+            @if ($errors->any())
+                <ul class="list-group mb-3">
+                    @foreach ($spec as $item)
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
+                                id="{{ $item->name }}" name="specialization[]"
+                                {{ in_array($item->id, old('specialization', [])) ? 'checked' : '' }}
+                                >
+                            <label class="form-check-label stretched-link"
+                                for="{{ $item->name }}">{{ $item->name }}</label>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
             <ul class="list-group mb-3">
                 @foreach ($spec as $item)
                     <li class="list-group-item">
                         <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
-                            id="{{ $item->name }}" name="specialization[]" {{ in_array($item->id, old('specialization', [])) ? 'checked' : '' }}>
-                        <label class="form-check-label stretched-link" for="{{ $item->name }}">{{ $item->name }}</label>
+                            id="{{ $item->name }}" name="specialization[]"
+                            {{ $doc->specializations->contains($item->id) ? 'checked' : '' }}
+                            >
+                        <label class="form-check-label stretched-link"
+                            for="{{ $item->name }}">{{ $item->name }}</label>
                     </li>
                 @endforeach
             </ul>
+            @endif
 
             <button type="submit" class="btn btn-primary mb-3">Save</button>
         </form>
