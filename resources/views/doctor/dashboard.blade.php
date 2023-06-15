@@ -12,26 +12,36 @@
                         <img src="{{ asset('storage/' . $user->doctor->image) }}" alt="{{ $user->doctor->name }}">
                         <div class="ms-4">
                             <h3>{{ $user->name }} {{ $user->surname }}</h3>
-                            <p>Email: {{ $user->email }} <br> Address: {{ $user->address }} <br> Telephone: {{ $user->doctor->telephone }} <br> Performance: {{ $user->doctor->performance }}</p>
+                            <p>Email: {{ $user->email }} <br> Address: {{ $user->address }} <br> Telephone:
+                                {{ $user->doctor->telephone }} <br> Performance: {{ $user->doctor->performance }}</p>
                         </div>
                     </div>
                     <h4 class="mt-4">Description</h4>
                     <p>{{ $user->doctor->description }}</p>
                     <div class="mt-4">
                         <h5>Curriculum</h5>
-                        <object data="{{ asset('storage/' . $user->doctor->cv) }}"
-                            type="application/pdf" width="100%" height="500px">
+                        <object data="{{ asset('storage/' . $user->doctor->cv) }}" type="application/pdf" width="100%"
+                            height="500px">
                         </object>
                     </div>
                 </div>
             </div>
-            <a href="{{ route('doctor.doctor.show', $user->doctor->id) }}" class="btn btn-primary">Edit profile</a>
+            <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-primary mb-4">Edit profile</a>
         @else
+            @if ($errors->any())
+                <div class="alert alert-danger mb-4 mt-4">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form method="POST" action="{{ route('doctor.doctor.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="telephone" placeholder="Telephone" aria-label="Telephone"
-                        aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="telephone" placeholder="Telephone"
+                        aria-label="Telephone" aria-describedby="basic-addon1">
                 </div>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="performance" placeholder="Performance"

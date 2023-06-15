@@ -40,7 +40,7 @@ class DoctorController extends Controller
         $request->validate([
             'telephone' => 'required|max:15|string',
             'performance' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'required|string|max:255',
             'image' => 'required|image',
             'cv' => 'required|mimes:pdf'
         ]);
@@ -72,9 +72,7 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        $doc=Doctor::findOrFail($id);
 
-        return view('doctor.details',compact('doc'));
     }
 
     /**
@@ -85,7 +83,9 @@ class DoctorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $doc=Doctor::findOrFail($id);
+
+        return view('doctor.details',compact('doc'));
     }
 
     /**
@@ -97,7 +97,20 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'telephone' => 'required|max:15|string',
+            'performance' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            /*'image' => 'required|image',
+            'cv' => 'required|mimes:pdf'*/
+        ]);
+
+        $data=$request->all();
+        $doc=Doctor::findOrFail($id);
+        $doc->fill($data);
+        $doc->update();
+        $user=$doc->user;
+        return view('doctor.dashboard',compact('user'));
     }
 
     /**
