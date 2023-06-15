@@ -11,7 +11,7 @@ class DashBoardController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $specializzazioni=Specialization::all();
-        return view('doctor.dashboard',compact('user','specializzazioni'));
+        $spec=Specialization::all();
+        return view('doctor.dashboard',compact('user','spec'));
     }
 }

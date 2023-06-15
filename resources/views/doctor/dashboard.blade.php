@@ -69,12 +69,13 @@
                 </div>
 
                 <ul class="list-group mb-3">
-                    <li class="list-group-item">
-                        @foreach ($spec as $item)
-                            <input class="form-check-input me-1" type="checkbox" value="{{ $item->name }}" id="{{ $item->name }}">
+                    @foreach ($spec as $item)
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
+                                id="{{ $item->name }}" name="specialization[]" {{ in_array($item->id, old('specialization', [])) ? 'checked' : '' }}>
                             <label class="form-check-label stretched-link" for="{{ $item->name }}">{{ $item->name }}</label>
-                        @endforeach
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
 
                 <button type="submit" class="btn btn-primary mb-3">Save</button>

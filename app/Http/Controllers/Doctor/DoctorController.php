@@ -56,8 +56,12 @@ class DoctorController extends Controller
             $doc['cv']=Storage::put('uploads',$doc['cv']);
         }
 
+
         $doctor->fill($doc);
         $doctor->save();
+        if(isset($doc['specialization'])){
+            $doctor->specializations()->sync($doc['specialization']);
+        }
         $user = auth()->user();
         $user->doctor_id=$doctor->id;
         $user->update();
