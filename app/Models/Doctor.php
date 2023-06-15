@@ -9,10 +9,12 @@ class Doctor extends Model
 {
     use HasFactory;
 
+    protected $guarded=[];
+
     // RELATIONS
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
 
     public function reviews()
