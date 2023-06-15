@@ -25,7 +25,8 @@
             </div>
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="performance" placeholder="Performance"
-                    aria-label="Performance" aria-describedby="basic-addon1" value="{{ old('performance', $doc->performance) }}">
+                    aria-label="Performance" aria-describedby="basic-addon1"
+                    value="{{ old('performance', $doc->performance) }}">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
@@ -39,6 +40,16 @@
                 <label for="image" class="form-label">Profile image</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>
+
+            <ul class="list-group mb-3">
+                @foreach ($spec as $item)
+                    <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
+                            id="{{ $item->name }}" name="specialization[]" {{ in_array($item->id, old('specialization', [])) ? 'checked' : '' }}>
+                        <label class="form-check-label stretched-link" for="{{ $item->name }}">{{ $item->name }}</label>
+                    </li>
+                @endforeach
+            </ul>
 
             <button type="submit" class="btn btn-primary mb-3">Save</button>
         </form>

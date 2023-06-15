@@ -18,6 +18,14 @@
                     </div>
                     <h4 class="mt-4">Description</h4>
                     <p>{{ $user->doctor->description }}</p>
+                    <h4 class="mt-4">Specializzations</h4>
+                    <p>
+                        <?php $tmp='' ?>
+                        @foreach ($user->doctor->specializations as $item)
+                           <?php $tmp.=$item->name.", " ?>
+                        @endforeach
+                        {{ rtrim($tmp, ", ") }}
+                    </p>
                     <div class="mt-4">
                         <h5>Curriculum</h5>
                         <object data="{{ asset('storage/' . $user->doctor->cv) }}" type="application/pdf" width="100%"
@@ -59,6 +67,15 @@
                     <label for="image" class="form-label">Profile image</label>
                     <input class="form-control" type="file" id="image" name="image">
                 </div>
+
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">
+                        @foreach ($spec as $item)
+                            <input class="form-check-input me-1" type="checkbox" value="{{ $item->name }}" id="{{ $item->name }}">
+                            <label class="form-check-label stretched-link" for="{{ $item->name }}">{{ $item->name }}</label>
+                        @endforeach
+                    </li>
+                </ul>
 
                 <button type="submit" class="btn btn-primary mb-3">Save</button>
             </form>

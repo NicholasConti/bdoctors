@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use App\Models\Specialization;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -84,8 +85,9 @@ class DoctorController extends Controller
     public function edit($id)
     {
         $doc=Doctor::findOrFail($id);
+        $spec=Specialization::all();
 
-        return view('doctor.details',compact('doc'));
+        return view('doctor.details',compact('doc','spec'));
     }
 
     /**
@@ -109,7 +111,12 @@ class DoctorController extends Controller
         $doc=Doctor::findOrFail($id);
         $doc->fill($data);
         $doc->update();
+        if(isset($data['specialization'])){
+            $doc->specializations()->sync($data['specialization']);
+        }
+
         $user=$doc->user;
+
         return view('doctor.dashboard',compact('user'));
     }
 

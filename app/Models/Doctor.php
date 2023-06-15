@@ -9,7 +9,7 @@ class Doctor extends Model
 {
     use HasFactory;
 
-    protected $guarded=[];
+    protected $guarded=['specialization'];
 
     // RELATIONS
     public function user()
