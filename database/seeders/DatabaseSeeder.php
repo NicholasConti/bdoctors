@@ -17,7 +17,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SpecializationSeeder::class,
             SponsorshipSeeder::class,
-            VotesTableSeeder::class
+            VotesTableSeeder::class,
+            MessageSeeder::class,
+            ReviewSeeder::class,
+            SpecializationSeeder::class,
+            SponsorshipSeeder::class,
+            DoctorVoteSeeder::class,
+            DoctorSponsorshipSeeder::class,
+            DoctorSpecializationSeeder::class
         ]);
     }
 }
