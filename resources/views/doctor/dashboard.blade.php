@@ -5,6 +5,7 @@
         <h2 class="fs-4 text-secondary my-4">
             {{ __('My Dashboard') }}
         </h2>
+            {{-- USER-INFO --}}
         @if ($user->doctor)
         <div class="profile-img d-flex align-items-center my-4">
             <img src="{{ asset('storage/' . $user->doctor->image) }}" alt="{{ $user->doctor->name }}">
@@ -15,6 +16,7 @@
                 </p>
             </div>
         </div><hr>
+            {{-- USER-LEFT-SIDE --}}
         <div class="d-flex">
             <div>
                 <div class="row gy-2 border-end me-5">
@@ -33,6 +35,7 @@
                         </p>
                         <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-primary">Edit profile</a>
                     </div>
+
                     <div class="col-12">
                         <h4 class="btn btn-primary d-inline-block">Media Voti ricevuti:</h4>
                         <?php $mediaVoto = 0; ?>
@@ -61,10 +64,8 @@
                         </p>
                     </div>
                 </div>
-
-
             </div>
-            {{-- RIGHT-SIDE --}}
+            {{-- USER-RIGHT-SIDE --}}
             <div class="col-9">
                 <object data="{{ asset('storage/' . $user->doctor->cv) }}" type="application/pdf" width="100%"
                     height="500px">
@@ -72,6 +73,7 @@
             </div>
             {{-- / --}}
         </div>
+
         <div class="row mt-5">
             <div class="col-6">
                 <div class="card">
