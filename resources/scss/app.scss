@@ -6,7 +6,8 @@
 }
 .hov{
     &:hover {
-        border-bottom: 1px solid #005a97;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.1);
     }
 }
 .profile-img{
