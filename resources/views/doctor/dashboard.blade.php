@@ -50,7 +50,7 @@
                 </div>
                 {{-- USER-RIGHT-SIDE --}}
                 <div class="offcanvas_box col-9 border-start border-2  border-primary" style="height: 500px;">
-                    <div class="off_canvas offcanvas col-12  ms-5" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                    <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasScrollingLabel">My Curriculum Vitae</h5>
                         </div>

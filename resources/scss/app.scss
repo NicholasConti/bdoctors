@@ -1,17 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
+@import '_partials/header';
 @import '_partials/footer';
+@import '_partials/dashboard';
 #app{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
-.hov{
-    &:hover {
-        border-radius: 10px;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-}
 .profile-img{
-
     img{
         width: 200px;
         height: 200px;
@@ -23,14 +18,5 @@
 .background_color {
     background: rgb(0, 90, 151);
     background: linear-gradient(180deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
-}
-.offcanvas_box{
-    position: relative;
-    .off_canvas{
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
 }
 

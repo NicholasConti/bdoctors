@@ -156,9 +156,9 @@
                 </div>
             </div>
             <!-- /Logo+Info -->
-        </div>
+        </div><hr>
         <!-- Icons -->
-        <div class="social text-center d-flex justify-content-center gap-1">
+        <div class="social text-center d-flex justify-content-center gap-1 pt-3">
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a></div>
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a></div>
             <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-facebook-f" /></a></div>
