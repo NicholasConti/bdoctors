@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\SpecializationsController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('doctors', [DoctorController::class, 'index']);
 
 Route::get('specializations', [SpecializationsController::class, 'index']);
+
+Route::get('users', [UserController::class, 'index']);
