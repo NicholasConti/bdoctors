@@ -9,36 +9,39 @@
             </h2>
                 {{-- USER-INFO --}}
             @if ($user->doctor)
-            <div class="profile-img d-flex align-items-center my-4 text-light border-bottom pb-3">
+            <div class="profile-img d-flex align-items-center my-4 text-light border-bottom border-primary pb-3">
                 <img src="{{ $user->doctor->image }}" alt="{{ $user->doctor->name }}">
-                <div class="ms-4">
-                    <h3>{{ $user->name }} {{ $user->surname }}</h3>
-                    <p>Email: {{ $user->email }} <br> Address: {{ $user->address }} <br> Telephone:
-                        {{ $user->doctor->telephone }} <br> Performance: {{ $user->doctor->performance }}
-                    </p>
+                <div class="ms-4 mt-4">
+                    <ul>
+                        <h3>{{ $user->name }} {{ $user->surname }}</h3>
+                        <li>Email: {{ $user->email }}</li>
+                        <li>Address: {{ $user->address }}</li>
+                        <li>Telephone: {{ $user->doctor->telephone }}</li>
+                        <li>Performance: {{ $user->doctor->performance }}</li>
+                    </ul>
                 </div>
             </div>
                 {{-- USER-LEFT-SIDE --}}
             <div class="d-flex">
                 <div>
                     <div class="row gy-2 me-5">
-                        <div class="col-12 d-flex flex-column gap-3 ms-3 pt-3">
-                            <button class="btn btn-light mb-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                        <div class="col-12 d-flex flex-column gap-3 ms-3 mt-5">
+                            <button class="btn border-0 btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                                 Description
                             </button>
-                            <button class="btn btn-light mb-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                                 Specializations
                             </button>
-                            <button class="btn btn-light mb-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                                 Messages
                             </button>
-                            <button class="btn btn-light mb-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                                 Votes & Reviews
                             </button>
-                            <button class="btn btn-light mb-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                                 Sponsorships
                             </button>
-                            <button class="btn btn-light mb-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                                 Curriculum Vitae
                             </button>
                             <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit profile</a>
@@ -46,8 +49,8 @@
                     </div>
                 </div>
                 {{-- USER-RIGHT-SIDE --}}
-                <div class="offcanvas_box col-9 border-start" style="height: 500px;">
-                    <div class="off_canvas offcanvas col-12" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                <div class="offcanvas_box col-9 border-start border-2  border-primary" style="height: 500px;">
+                    <div class="off_canvas offcanvas col-12  ms-5" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasScrollingLabel">My Curriculum Vitae</h5>
                         </div>
@@ -121,25 +124,6 @@
 
                 {{-- / --}}
             </div>
-
-            {{-- <div class="row mt-5">
-                <div class="col-6">
-                    <div class="card">
-                        <h5 class="card-header">Messaggi Ricevuti</h5>
-                        <div class="card-body">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card">
-                        <h5 class="card-header">Recensioni Ricevute</h5>
-                        <div class="card-body">
-
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
             @else
                 @if ($errors->any())
                     <div class="alert alert-danger mb-4 mt-4">
