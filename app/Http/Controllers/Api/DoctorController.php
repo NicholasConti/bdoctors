@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+    // QUERY FOR ALL DOCTORS
     public function index()
     {
         $doctors = Doctor::with('specializations', 'sponsorships', 'votes', 'user')->get();
@@ -15,6 +16,17 @@ class DoctorController extends Controller
         return response()->json([
             'success' => true,
             'results' => $doctors
+        ]);
+    }
+
+    // QUERY FOR DOCTOR DETAIL
+    public function show(int $id)
+    {
+        $doctor = Doctor::where('id', $id)->first();
+
+        return response()->json([
+            'success' => true,
+            'results' => $doctor
         ]);
     }
 }
