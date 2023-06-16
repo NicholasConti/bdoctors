@@ -10,7 +10,7 @@
                 {{-- USER-INFO --}}
             @if ($user->doctor)
             <div class="profile-img d-flex align-items-center my-4">
-                <img src="{{ asset('storage/' . $user->doctor->image) }}" alt="{{ $user->doctor->name }}">
+                <img src="{{ $user->doctor->image }}" alt="{{ $user->doctor->name }}">
                 <div class="ms-4">
                     <h3>{{ $user->name }} {{ $user->surname }}</h3>
                     <p>Email: {{ $user->email }} <br> Address: {{ $user->address }} <br> Telephone:
@@ -171,5 +171,5 @@
             @endif
         </div>
     </div>
-    
+
 @endsection
