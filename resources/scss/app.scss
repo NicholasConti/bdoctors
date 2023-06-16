@@ -18,3 +18,8 @@
         object-fit: cover;
     }
 }
+
+.background_color {
+    background: rgb(0, 90, 151);
+    background: linear-gradient(180deg, rgba(0, 90, 151, 1) 0%, rgba(43, 151, 172, 1) 100%);
+}
