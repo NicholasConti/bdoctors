@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('doctors', [DoctorController::class, 'index']);
+Route::get('doctors/{id}', [DoctorController::class, 'show']);
 
 Route::get('specializations', [SpecializationsController::class, 'index']);
 
