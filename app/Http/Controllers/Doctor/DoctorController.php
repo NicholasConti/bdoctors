@@ -45,28 +45,30 @@ class DoctorController extends Controller
             'image' => 'required|image',
             'cv' => 'required|mimes:pdf'
         ]);
-
-        $doc = $request->all();
-        $doctor = new Doctor();
-
-        if (isset($doc['image'])) {
-            $doc['image'] = Storage::put('uploads', $doc['image']);
-        }
-        if (isset($doc['cv'])) {
-            $doc['cv'] = Storage::put('uploads', $doc['cv']);
-        }
-
-
-        $doctor->fill($doc);
-        $doctor->save();
-        if (isset($doc['specialization'])) {
-            $doctor->specializations()->sync($doc['specialization']);
-        }
         $user = auth()->user();
-        $user->doctor_id = $doctor->id;
-        $user->update();
 
-        return view('doctor.dashboard', compact('user'));
+        if (!$user->doctor_id){
+            $doc = $request->all();
+            $doctor = new Doctor();
+
+            if (isset($doc['image'])) {
+                $doc['image'] = Storage::put('uploads', $doc['image']);
+            }
+            if (isset($doc['cv'])) {
+                $doc['cv'] = Storage::put('uploads', $doc['cv']);
+            }
+
+
+            $doctor->fill($doc);
+            $doctor->save();
+            if (isset($doc['specialization'])) {
+                $doctor->specializations()->sync($doc['specialization']);
+            }
+            $user->doctor_id = $doctor->id;
+            $user->update();
+        }
+        $spec=Specialization::all();
+        return view('doctor.dashboard', compact('user','spec'));
     }
 
     /**
