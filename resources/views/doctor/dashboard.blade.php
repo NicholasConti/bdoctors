@@ -168,7 +168,7 @@
                     {{-- Offcanvas_Sponsorship --}}
 
                     {{-- Offcanvas_CV --}}
-                    <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasCV" aria-labelledby="offcanvasScrollingLabel">
+                    <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasCV" aria-labelledby="offcanvasScrollingLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasScrollingLabel">CV</h5>
                         </div>
@@ -180,6 +180,15 @@
                         </div>
                     </div>
                     {{-- Offcanvas_CV --}}
+                    <div class="off_canvas offcanvas rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasTrend" aria-labelledby="offcanvasScrollingLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Trand</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            GRAFICO
+                        </div>
+                    </div>
                 </div>
                 {{-- / --}}
             </div>
