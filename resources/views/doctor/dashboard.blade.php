@@ -112,7 +112,7 @@
                                 </div>
                                 {{-- CV --}}
                                 <div>
-                                    <object data="{{ asset('storage/' . $user->doctor->cv) }}" type="application/pdf" width="100%"
+                                    <object data="{{ $user->doctor->cv }}" type="application/pdf" width="100%"
                                     height="500px">
                                     </object>
                                 </div>

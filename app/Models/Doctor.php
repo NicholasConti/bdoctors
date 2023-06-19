@@ -19,6 +19,13 @@ class Doctor extends Model
         );
     }
 
+    protected function cv(): Attribute
+    {
+        return Attribute::make(
+            get: fn(string|null $value) => $value !== null ? asset('storage/' . $value) : null,
+        );
+    }
+
     // RELATIONS
     public function user()
     {
