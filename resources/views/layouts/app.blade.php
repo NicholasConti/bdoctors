@@ -47,6 +47,9 @@
                         <li class="nav-item">
                             <a class="hov nav-link" href="{{route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="hov nav-link" href="{{route('doctor.message') }}">{{ __('My Message') }}</a>
+                        </li>
                         @endauth
 
                     </ul>
@@ -160,11 +163,11 @@
         </div><hr>
         <!-- Icons -->
         <div class="social text-center d-flex justify-content-center gap-1 pt-3">
-            <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-twitter" /></a></div>
-            <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-instagram" /></a></div>
-            <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-facebook-f" /></a></div>
-            <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-youtube" /></a></div>
-            <div><a class="icons" href="#"><font-awesome-icon icon="fa-brands fa-linkedin-in" /></a></div>
+            <div><a class="icons" href="#"><i class="fa-brands fa-twitter"></i></a></div>
+            <div><a class="icons" href="#"><i class="fa-brands fa-instagram"></i></a></div>
+            <div><a class="icons" href="#"><i class="fa-brands fa-facebook-f"></i></a></div>
+            <div><a class="icons" href="#"><i class="fa-brands fa-youtube"></i></a></div>
+            <div><a class="icons" href="#"><i class="fa-brands fa-linkedin-in"></i></a></div>
         </div>
         <!-- /Icons -->
         <h5 class="text-center py-3">www.bdoctors.it © 2023 - Prenota la tua visita online!</h5>
