@@ -44,7 +44,7 @@
                         Curriculum Vitae
                     </button>
                     <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit profile</a>
-
+                    
                 </div>
                 <div class="d-flex gap-2 d-sm-block d-md-none mb-5 text-center">
                     <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasScrolling"><span>❤️</span></button>
