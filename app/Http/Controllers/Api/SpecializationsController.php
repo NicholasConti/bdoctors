@@ -10,7 +10,7 @@ class SpecializationsController extends Controller
 {
     public function index()
     {
-        $specializations = Specialization::with('doctors')->get();
+        $specializations = Specialization::all();
 
         return response()->json([
             'success' => true,
