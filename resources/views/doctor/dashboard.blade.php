@@ -25,35 +25,35 @@
                 {{-- USER-LEFT-SIDE --}}
             <div class="d-flex flex-column">
                 <div class="d-flex gap-2 mb-5 d-none d-md-block col-md-12 container-sm text-center border-bottom border-primary pb-3">
-                    <button class="btn border-0 btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasScrolling">
+                    <button class="btn border-0 btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasScrolling">
                         Description
                     </button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSpecializations" aria-controls="offcanvasScrolling">
+                    <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSpecializations" aria-controls="offcanvasScrolling">
                         Specializations
                     </button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling">
+                    <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling">
                         Messages
                     </button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes&revies" aria-controls="offcanvasScrolling">
+                    <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes&revies" aria-controls="offcanvasScrolling">
                         Votes & Reviews
                     </button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSponsorship" aria-controls="offcanvasScrolling">
+                    <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSponsorship" aria-controls="offcanvasScrolling">
                         Sponsorships
                     </button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling">
+                    <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling">
                         Curriculum Vitae
                     </button>
                     <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit profile</a>
 
                 </div>
-                <div class="d-flex gap-2 d-sm-block d-md-none mb-5">
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><span>❤️</span></button>
+                <div class="d-flex gap-2 d-sm-block d-md-none mb-5 text-center">
+                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasScrolling"><span>❤️</span></button>
+                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSpecializations" aria-controls="offcanvasScrolling"><span>❤️</span></button>
+                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling"><span>❤️</span></button>
+                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes&revies" aria-controls="offcanvasScrolling"><span>❤️</span></button>
+                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSponsorship" aria-controls="offcanvasScrolling"><span>❤️</span></button>
+                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling"><span>❤️</span></button>
+                    <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit</a>
                 </div>
 
                 {{-- USER-RIGHT-SIDE --}}
