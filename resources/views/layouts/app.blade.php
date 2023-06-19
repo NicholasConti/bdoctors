@@ -47,6 +47,9 @@
                         <li class="nav-item">
                             <a class="hov nav-link" href="{{route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="hov nav-link" href="{{route('doctor.message') }}">{{ __('My Message') }}</a>
+                        </li>
                         @endauth
 
                     </ul>
