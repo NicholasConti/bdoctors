@@ -24,6 +24,12 @@ Route::get('/', function () {
 
 Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(function () {
 
+
+    Route::get('/chartjs', function () {
+        return view('doctor.chartjs');
+    });
+
+
     Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
     Route::resource('/doctor',DoctorController::class);

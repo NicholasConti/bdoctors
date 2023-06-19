@@ -43,10 +43,15 @@
                     <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling">
                         Curriculum Vitae
                     </button>
+
+                    <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit profile</a>
+                    
+
                     <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTrend" aria-controls="offcanvasScrolling">
                         Trend
                     </button>
                     <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit Profile</a>
+
                 </div>
                 <div class="user_icon d-flex gap-2 d-sm-block d-md-none mb-5 text-center border-bottom border-primary pb-3">
                     <button title="Description" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-solid fa-info"></i></span></button>
