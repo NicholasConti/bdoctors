@@ -43,17 +43,20 @@
                     <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling">
                         Curriculum Vitae
                     </button>
-                    <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit profile</a>
-
+                    <button class="btn btn-light m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTrend" aria-controls="offcanvasScrolling">
+                        Trend
+                    </button>
+                    <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit Profile</a>
                 </div>
-                <div class="d-flex gap-2 d-sm-block d-md-none mb-5 text-center">
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSpecializations" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes&revies" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSponsorship" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling"><span>❤️</span></button>
-                    <a href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light">Edit</a>
+                <div class="user_icon d-flex gap-2 d-sm-block d-md-none mb-5 text-center border-bottom border-primary pb-3">
+                    <button title="Description" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDescription" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-solid fa-info"></i></span></button>
+                    <button title="Specializations" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSpecializations" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-sharp fa-solid fa-suitcase-medical"></i></span></button>
+                    <button title="Messages" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-solid fa-message"></i></span></button>
+                    <button title="Reviews" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes&revies" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-solid fa-star-half-stroke"></i></span></button>
+                    <button title="Sponsorships" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSponsorship" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-solid fa-arrow-up-right-dots"></i></span></button>
+                    <button title="CV" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-solid fa-file-pdf"></i></span></button>
+                    <button title="Trend" class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTrend" aria-controls="offcanvasScrolling"><span class="text-primary"><i class="fa-solid fa-chart-column"></i></span></button>
+                    <a title="Edit Profile" href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn-light text-primary"><i class="fa-solid fa-user-pen"></i></a>
                 </div>
 
                 {{-- USER-RIGHT-SIDE --}}

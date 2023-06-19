@@ -8,16 +8,9 @@
         right: 0;
     }
 }
-/* @media screen and (max-width: 767px){
-    .my_test{
-        position: relative;
-    }
-    .offcanvas_box{
-        height: 18.75rem;
-        width: 100vw;
-        border-left: none !important;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-} */
+.user_icon button{
+    font-size: 1.25rem;
+}
+.user_icon a{
+    font-size: 1.25rem;
+}
