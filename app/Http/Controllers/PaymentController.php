@@ -22,10 +22,10 @@ class PaymentController extends Controller
     public function showPaymentForm()
     {
         $test = $this->gateway;
-        return view('doctor.form', compact('test'));
+        return view('doctor.form',/*  compact('test') */);
     }
 
-    public function processPayment(Request $request)
+   /*  public function processPayment(Request $request)
     {
         $nonce = $request->input('payment_method_nonce');
         $amount = 10.00; // Importo di esempio, puoi sostituirlo con la logica appropriata
@@ -46,5 +46,5 @@ class PaymentController extends Controller
             $error = $result->message;
             return redirect()->route('payment.failure')->with('error', $error);
         }
-    }
+    } */
 }
