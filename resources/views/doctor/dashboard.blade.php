@@ -69,7 +69,7 @@
                 {{-- Offcanvas_Description --}}
 
                 {{-- Offcanvas_Specializations --}}
-                <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSpecializations" aria-labelledby="offcanvasScrollingLabel">
+                <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSpecializations" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Your Specializations</h5>
                     </div>
@@ -91,7 +91,7 @@
                 {{-- Offcanvas_Specializations --}}
 
                 {{-- Offcanvas_Messages --}}
-                <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
+                <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Messages received</h5>
                     </div>
@@ -111,7 +111,7 @@
                 {{-- Offcanvas_Messages --}}
 
                 {{-- Offcanvas_Votes&reviews --}}
-                <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
+                <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Your Votes and Reviews</h5>
                     </div>
@@ -140,7 +140,7 @@
                 {{-- Offcanvas_Votes&reviews --}}
 
                 {{-- Offcanvas_Sponsorship --}}
-                <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSponsorship" aria-labelledby="offcanvasScrollingLabel">
+                <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSponsorship" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Sponsorship</h5>
                     </div>
