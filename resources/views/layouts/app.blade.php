@@ -62,7 +62,7 @@
                                 <a class="hov nav-link"
                                     href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
                             </li>
-                        @endif    
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -125,39 +125,34 @@
         <div class="row text-center">
             <!-- info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-md-block d-none  py-5">
-                <h5>Servizi</h5>
+                <h5>About us</h5>
                 <ul>
-                    <li><a href="#">Privacy e cookies</a></li>
-                    <li><a href="#">Chi siamo</a></li>
-                    <li><a href="#">Contatti</a></li>
-                    <li><a href="#">Lavoro ASSUMIAMO!</a></li>
-                    <li><a href="#">Condizioni di Servizio</a></li>
-                    <li><a href="#">Ufficio stampa</a></li>
-                    <li><a href="#">In che modo ordiniamo i risultati</a></li>
+                    <li><a href="https://www.topdoctors.it/en/chi-siamo/">About BDoctors</a></li>
+                    <li><a href="https://www.topdoctors.it/en/occupiamo-della-tua-salute/">Why choose us</a></li>
+                    <li><a href="https://www.topdoctors.it/en/informativa-sulla-privacy/">Privacy Policy</a></li>
+                    <li><a href="https://www.topdoctors.it/en/informazioni-legali/">Terms of Use</a></li>
+                    <li><a href="https://www.topdoctors.it/en/informativa-sulla-privacy/">Cookies policy</a></li>
                 </ul>
             </div>
 
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-lg-block d-none py-5">
-                <h5>Per i Pazienti</h5>
+                <h5>Collaborate with us</h5>
                 <ul>
-                    <li><a href="#">Dottori</a></li>
-                    <li><a href="#">Medici di base</a></li>
-                    <li><a href="#">Strutture</a></li>
-                    <li><a href="#">Chiedi al dottore</a></li>
-                    <li><a href="#">Prestazioni</a></li>
-                    <li><a href="#">Patologie</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">App Mobile</a></li>
+                    <li><a href="https://www.topdoctors.it/en/collaborazione-con-medici/">Doctors</a></li>
+                    <li><a href="https://www.topdoctors.it/en/raccomanda-medici/">Nominate doctors</a></li>
+                    <li><a href="https://www.topdoctors.it/en/aziende-e-servizi/">Strategic alliances</a></li>
+                    <li><a href="https://www.topdoctors.it/en/perche-topdoctors/">Selection process</a></li>
+                    <li><a href="https://www.topdoctors.it/en/lavora-a-top-doctors/">Work with us</a></li>
                 </ul>
             </div>
             <!-- /info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto d-lg-block d-none  py-5">
-                <h5>Per i professionisti sanitari</h5>
+                <h5>Customer Care</h5>
                 <ul>
-                    <li><a href="#">Prezzi</a></li>
-                    <li><a href="#">Area professionisti sanitari</a></li>
-                    <li><a href="#">Risorse Gratuite</a></li>
-                    <li><a href="#">Centro Assistenza per Professionisti</a></li>
+                    <li><a href="https://www.topdoctors.it/en/suggerimenti-e-domande/">Contact us</a></li>
+                    <li><a href="https://www.topdoctors.it/en/garanzia-di-qualita/">Quality commitment</a></li>
+                    <li><a href="https://www.topdoctors.it/en/dizionario-medico/">All medical procedures</a></li>
+                    <li><a href="https://www.topdoctors.it/en/domande-frequenti/">FAQs</a></li>
                 </ul>
             </div>
             <!-- Logo+Info -->
@@ -173,7 +168,7 @@
                             <h6>BestDoctors italy S.r.l</h6>
                         </li>
                         <li>
-                            <h6>Piazzale delle belle figliole</h6>
+                            <h6>Square of the beautiful girls</h6>
                         </li>
                         <li>
                             <h6>00196 Roma (RM), Italia</h6>
