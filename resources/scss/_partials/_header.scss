@@ -3,4 +3,12 @@
     img{
         width: 9.375rem;
     }
+    .navbar-nav li a{
+        margin-top: .625rem;
+        &:hover{
+            background-color: #94c3e2;
+            color: #fff;
+        }
+
+    }
 }

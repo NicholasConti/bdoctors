@@ -23,11 +23,11 @@
                 @csrf
                 @method('PUT')
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="telephone" placeholder="Telephone" aria-label="Telephone"
+                    <input minlength="2" maxlength="30" type="text" class="form-control" name="telephone" placeholder="Telephone" aria-label="Telephone"
                         aria-describedby="basic-addon1" value="{{ old('telephone', $doc->telephone) }}">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="performance" placeholder="Performance"
+                    <input maxlength="250" type="text" class="form-control" name="performance" placeholder="Performance"
                         aria-label="Performance" aria-describedby="basic-addon1"
                         value="{{ old('performance', $doc->performance) }}">
                 </div>
