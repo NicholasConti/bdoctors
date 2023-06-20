@@ -40,27 +40,9 @@ Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    /* Route::get('/payment', [PaymentController::class, 'showPaymentForm']);
-    Route::post('/payment/process', [PaymentController::class, 'processPayment']); */
-
     // Mostra il modulo di pagamento
     Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
 
-    // Elabora il pagamento
-    /* Route::post('/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process'); */
-    Route::post('/doctor/payment/process', [PaymentController::class, 'processPayment'])->name('payment.process');
-    // Pagamento riuscito
-    Route::get('/payment/success', function () {
-        return "Pagamento riuscito!";
-    })->name('payment.success');
-
-    // Pagamento fallito
-    Route::get('/payment/failure', function () {
-        $error = session('error');
-        return "Pagamento fallito. Errore: " . $error;
-    })->name('payment.failure');
-  
-  
     //messaggi
     Route::get('/message',[MessageController::class,'index'])->name('message');
 });
