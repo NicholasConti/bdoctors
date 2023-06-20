@@ -28,7 +28,7 @@
                 <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling">
                     <span><i class="fa-solid fa-message pe-2"></i>Messages</span>
                 </button>
-                <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes&reviews" aria-controls="offcanvasScrolling">
+                <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes" aria-controls="offcanvasScrolling">
                     <span><i class="fa-solid fa-star-half-stroke pe-2"></i>Votes & Reviews</span>
                 </button>
                 <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSponsorship" aria-controls="offcanvasScrolling">
@@ -42,7 +42,7 @@
             {{-- USER-ICONS-@MOBILE --}}
             <div class="user_icon d-flex justify-content-center text-center gap-2 d-sm-block d-md-none border-bottom border-primary pb-3">
                 <button title="Messages" class="btn btn_color" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling"><span><i class="fa-solid fa-message"></i></span></button>
-                <button title="Reviews" class="btn btn_color" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes&reviews" aria-controls="offcanvasScrolling"><span><i class="fa-solid fa-star-half-stroke"></i></span></button>
+                <button title="Reviews" class="btn btn_color" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVotes" aria-controls="offcanvasScrolling"><span><i class="fa-solid fa-star-half-stroke"></i></span></button>
                 <button title="Sponsorships" class="btn btn_color" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSponsorship" aria-controls="offcanvasScrolling"><span><i class="fa-solid fa-arrow-up-right-dots"></i></span></button>
                 <button title="CV" class="btn btn_color" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCV" aria-controls="offcanvasScrolling"><span><i class="fa-solid fa-file-pdf"></i></span></button>
                 <a title="Edit Profile" href="{{ route('doctor.doctor.edit', $user->doctor->id) }}" class="btn btn_color"><i class="fa-solid fa-user-pen"></i></a>
@@ -111,7 +111,7 @@
                 {{-- Offcanvas_Messages --}}
 
                 {{-- Offcanvas_Votes&reviews --}}
-                <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasVotes&reviews" aria-labelledby="offcanvasScrollingLabel">
+                <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Your Votes and Reviews</h5>
                     </div>
