@@ -154,15 +154,16 @@
                     {{-- Offcanvas_Sponsorship --}}
                     <div class="off_canvas offcanvas col-12 ms-5 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSponsorship" aria-labelledby="offcanvasScrollingLabel">
                         <div class="offcanvas-header">
-                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Sponsorship</h5>
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto</h5>
                         </div>
                         <div class="offcanvas-body">
                                 {{-- SPONSORSHIPS --}}
-                            <div>
-                                @if (count($user->doctor->sponsorships)>0)
-                                <p class="d-inline-block">{{ $user->doctor->sponsorships[0]->name }}</p>
-                                @endif
-                            </div>
+                            <form id="package-form" >
+                                @foreach ($sponsor as $sponsorship)
+                                <input type="radio" name="package" value="{{$sponsorship->id}}">{{ $sponsorship->name }}<br>
+                                @endforeach
+                                <input type="submit" value="Procedi al pagamento">
+                            </form>
                         </div>
                     </div>
                     {{-- Offcanvas_Sponsorship --}}

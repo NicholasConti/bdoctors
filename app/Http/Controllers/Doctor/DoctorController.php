@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Models\Specialization;
 use App\Http\Controllers\Controller;
+use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
@@ -68,7 +69,8 @@ class DoctorController extends Controller
             $user->update();
         }
         $spec=Specialization::all();
-        return view('doctor.dashboard', compact('user','spec'));
+        $sponsor=Sponsorship::all();
+        return view('doctor.dashboard', compact('user','spec','sponsor'));
     }
 
     /**
@@ -133,8 +135,8 @@ class DoctorController extends Controller
         }
 
         $user = $doc->user;
-
-        return view('doctor.dashboard', compact('user'));
+        $sponsor=Sponsorship::all();
+        return view('doctor.dashboard', compact('user','sponsor'));
     }
 
     /**
