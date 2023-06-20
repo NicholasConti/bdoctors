@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Doctor\DoctorController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Doctor\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,12 @@ Route::get('/', function () {
 
 Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(function () {
 
+
+    Route::get('/chartjs', function () {
+        return view('doctor.chartjs');
+    });
+
+
     Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
     Route::resource('/doctor', DoctorController::class);
@@ -31,6 +38,7 @@ Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 
     /* Route::get('/payment', [PaymentController::class, 'showPaymentForm']);
     Route::post('/payment/process', [PaymentController::class, 'processPayment']); */
@@ -51,9 +59,11 @@ Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(
         $error = session('error');
         return "Pagamento fallito. Errore: " . $error;
     })->name('payment.failure');
-})
+  
+  
+    //messaggi
+    Route::get('/message',[MessageController::class,'index'])->name('message');
+});
 
-
-;
 
 require __DIR__ . '/auth.php';
