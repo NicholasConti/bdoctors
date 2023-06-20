@@ -165,24 +165,7 @@
                         <div>
                             <object data="{{ $user->doctor->cv }}" type="application/pdf" width="100%" height="500px"></object>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cv" class="form-label">Curriculum</label>
-                        <input class="form-control" type="file" id="cv" name="cv">
-                        <!-- profile cv preview -->
-                     <div class="preview pt-2">
-                        <object id="file-cv-preview" type="application/pdf" width="20%" class="border border-0 rounded"></object>
-                    </div>
-                    <!-- /profile cv preview -->
-                    </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Profile image</label>
-                        <input class="form-control" type="file" id="image" name="image">
-                        <!-- profile image preview -->
-                        <div class="preview pt-2">
-                            <img id="file-image-preview" width="20%" class="rounded">                        
-                        </div>
-                        <!-- /profile image preview -->
+                    </div>                        
                 </div>
                 {{-- Offcanvas_CV --}}
                
@@ -216,10 +199,20 @@
                 <div class="mb-3">
                     <label for="cv" class="form-label">Curriculum</label>
                     <input class="form-control" type="file" id="cv" name="cv">
+                    <!-- profile cv preview -->
+                    <div class="preview pt-2">
+                        <object id="file-cv-preview" type="application/pdf" width="20%" class="border border-0 rounded"></object>
+                    </div>
+                    <!-- /profile cv preview -->
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Profile image</label>
                     <input class="form-control" type="file" id="image" name="image">
+                    <!-- profile image preview -->
+                    <div class="preview pt-2">
+                        <img id="file-image-preview" width="20%" class="rounded">                        
+                    </div>
+                    <!-- /profile image preview -->
                 </div>
 
                 @if ($errors->any())
