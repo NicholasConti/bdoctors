@@ -46,8 +46,14 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         {{-- mostra i due link se è un dottore autenticato --}}
-                        @if (auth()->user() || !auth()->user()->doctor)
-                        @else
+                        @if (!auth()->user() || !auth()->user()->doctor)
+                            <li class="nav-item d-none">
+                                <a class="hov nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
+                            </li>
+                            <li class="nav-item d-none">
+                                <a class="hov nav-link" href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
+                            </li>
+                        @else()
                             <li class="nav-item">
                                 <a class="hov nav-link"
                                     href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
