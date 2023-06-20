@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('doctors', [DoctorController::class, 'index']);
 Route::get('doctors/{id}', [DoctorController::class, 'show']);
 Route::get('doctors/specialization/{id}', [DoctorController::class, 'search']);
+Route::get('doctors/filter/vote', [DoctorController::class,'filterVote']);
 
 Route::get('specializations', [SpecializationsController::class, 'index']);
 
