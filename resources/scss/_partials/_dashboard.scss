@@ -16,6 +16,10 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    &:hover {
+        background-color: #1094ec;
+        color: #fff;
+    }
 }
 
 .user_icon button{
