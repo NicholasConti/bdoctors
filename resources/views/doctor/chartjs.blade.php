@@ -10,6 +10,7 @@
 </head>
 <body>
 
+    {{-- Test per grafico dei trend --}}
 
 <div style="width: 600px; margin: auto;">
     <h1>SONO CHARTJS</h1>

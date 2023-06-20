@@ -1,5 +1,7 @@
 import { Chart } from "chart.js/auto";
 
+// assi cartesiani
+
 const labels = [
     'January',
     'February',
@@ -8,6 +10,8 @@ const labels = [
     'May',
     'June',
 ];
+
+//dati grafico
 
 const data = {
     labels: labels,
@@ -19,11 +23,15 @@ const data = {
     }]
 };
 
+//config data
+
 const config = {
     type: 'line',
     data: data,
     options: {}
 };
+
+//genera nuovo grafico
 
 new Chart(
     document.getElementById('myChart'),
