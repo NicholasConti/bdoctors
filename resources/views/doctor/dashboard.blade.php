@@ -54,45 +54,7 @@
             {{-- / --}}
             {{-- USER-RIGHT-SIDE --}}
             <div class="offcanvas_box col-12">
-                {{-- Offcanvas_Description --}}
-                <div class="off_canvas offcanvas rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasDescription" aria-labelledby="offcanvasScrollingLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Description</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div>
-                            {{-- DESCRIPTION --}}
-                            <div>
-                                <p>{{ $user->doctor->description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- Offcanvas_Description --}}
-
-                {{-- Offcanvas_Specializations --}}
-                <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSpecializations" aria-labelledby="offcanvasScrollingLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Your Specializations</h5>
-                    </div>
-                    <div class="offcanvas-body">
-                            {{-- SPECIALIZATIONS --}}
-                        <div>
-                            <?php $tmp = ''; ?>
-                            <p>
-                                @forelse ($user->doctor->specializations as $item)
-                                    <?php $tmp .= $item->name . ', '; ?>
-                                @empty
-                                    <?php $tmp = 'Nessuna specializzazione, '; ?>
-                                @endforelse
-                                    {{ rtrim($tmp, ', ') }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {{-- Offcanvas_Specializations --}}
-
+                
                 {{-- Offcanvas_Messages --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
@@ -145,22 +107,59 @@
                 {{-- Offcanvas_Sponsorship --}}
 
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSponsorship" aria-labelledby="offcanvasScrollingLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto</h5>
+                    <div class="d-flex justify-content-center m-3">
+                        <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto</h3>
                     </div>
                     <div class="offcanvas-body">
                        <div class="offcanvas-body">
                                 {{-- SPONSORSHIPS --}}
                             <form id="package-form" >
-                                @foreach ($sponsor as $sponsorship)
-                                <input type="radio" name="package" value="{{$sponsorship->id}}">{{ $sponsorship->name }}<br>
-                                @endforeach
-                                <input type="submit" value="Procedi al pagamento">
+                               
+                                <div class="container-fluid">
+                                    <div class="row d-flex justify-content-center">
+                                        @foreach ($sponsor as $sponsorship)
+                                            <div class="plan d-flex">
+                                                <div class="inner">
+                                                    <span class="pricing">
+                                                        <span>
+                                                            ${{$sponsorship->price}}
+                                                        </span>
+                                                    </span>
+                                                    <p class="title"><input type="radio" name="package" value=" {{$sponsorship->id}}"> {{$sponsorship->name }}</p>
+                                                    <p class="info">This plan is for those who have a team already and running a large business.</p>
+                                                    <ul class="features">
+                                                        <li>
+                                                            <span class="icon">
+                                                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                                                    <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="color_sponsor_text">Duration<strong>{{$sponsorship->duration}}hrs</strong></span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="icon">
+                                                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                                                    <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                                                                </svg>
+                                                            </span>
+                                                            <span class="color_sponsor_text">Price <strong>${{$sponsorship->price}}</strong></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>                                           
+                                      
+                                        @endforeach
+                                    </div>
+                                    <div class="d-flex justify-content-center  m-3">
+                                        <input class="btn_color" type="submit" value="Procedi al pagamento">
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
-
                 {{-- Offcanvas_Sponsorship --}}
 
                 {{-- Offcanvas_CV --}}
