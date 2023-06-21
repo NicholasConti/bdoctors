@@ -7,6 +7,7 @@ use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class DoctorController extends Controller
 {
@@ -31,9 +32,18 @@ class DoctorController extends Controller
             'results' => $doctor
         ]);
     }
+    // QUERY FOR DOCTORS SEARCH BY NAME AND SURNAME
+    public function search(string $text){
+        $doctor=Doctor::with('user','specializations')->join('users', 'users.doctor_id', '=', 'doctors.id')->where('users.name','LIKE','%'.$text.'%')->orWhere('users.surname','LIKE','%'.$text.'%')->select('doctors.*')->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $doctor
+        ]);
+    }
 
     // QUERY FOR DOCTORS SEARCH BY ID_SPECIALIZATION
-    public function search(int $idSpec){
+    public function searchBySpec(int $idSpec){
         $doctor= Doctor::join('doctor_specialization', 'doctor_specialization.doctor_id','=', 'doctors.id')->where('doctor_specialization.specialization_id', $idSpec)->select('doctors.*')->with('user','specializations')->get();
 
         return response()->json([
