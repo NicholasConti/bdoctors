@@ -55,7 +55,6 @@
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Description</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
                     </div>
                     <div class="offcanvas-body">
                         <div>
@@ -109,7 +108,7 @@
                     </div>
                 </div>
                 {{-- Offcanvas_Messages --}}
-                
+
                 {{-- Offcanvas_Votes&reviews --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
@@ -140,7 +139,7 @@
                 {{-- Offcanvas_Votes&reviews --}}
 
                 {{-- Offcanvas_Sponsorship --}}
-                
+
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSponsorship" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto</h5>
@@ -157,7 +156,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 {{-- Offcanvas_Sponsorship --}}
 
                 {{-- Offcanvas_CV --}}
@@ -170,10 +169,10 @@
                         <div>
                             <object data="{{ $user->doctor->cv }}" type="application/pdf" width="100%" height="500px"></object>
                         </div>
-                    </div>                        
+                    </div>
                 </div>
                 {{-- Offcanvas_CV --}}
-               
+
             </div>
             {{-- / --}}
         </div>
@@ -215,7 +214,7 @@
                     <input class="form-control" type="file" id="image" name="image">
                     <!-- profile image preview -->
                     <div class="preview pt-2">
-                        <img id="file-image-preview" width="20%" class="rounded">                        
+                        <img id="file-image-preview" width="20%" class="rounded">
                     </div>
                     <!-- /profile image preview -->
                 </div>
