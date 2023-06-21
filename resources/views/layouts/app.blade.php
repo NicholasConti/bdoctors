@@ -90,7 +90,7 @@
                                     {{-- <a class="dropdown-item" href="{{ route('admin.') }}">{{__('Profile')}}</a> --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -100,7 +100,7 @@
                                         {{-- <a class="dropdown-item" href="{{ route('admin.') }}">{{__('Profile')}}</a> --}}
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 
@@ -109,6 +109,7 @@
                                             @csrf
                                         </form>
                                     </div>
+                                </div>
                             </li>
                         @endguest
                     </ul>
