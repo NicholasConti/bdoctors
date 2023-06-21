@@ -57,9 +57,20 @@ class DoctorController extends Controller
         //$doctor=Doctor::with(['votes'])->join('doctor_vote', 'doctor_vote.doctor_id' , '=', 'doctors.id')->join('votes', 'votes.id', '=', 'doctor_vote.vote_id')->select('doctors.*')->get();
 
         $doctor=Vote::join('doctor_vote','doctor_vote.vote_id','=','votes.id')->rightJoin('doctors','doctors.id','=','doctor_vote.doctor_id')->select(DB::raw('avg(votes.vote) as media, doctors.id'))->groupBy('doctors.id')->orderByDesc('media')->get();
+        $arrayFinale=[];
+        foreach ($doctor as $key => $value) {
+            $arr=[];
+            $arr['media']=$value['media'];
+            $tmp=Doctor::where('id',$value['id'])->with('user')->first();
+            foreach ($tmp->toArray() as $k => $item){
+                $arr[$k]=$item;
+            }
+            $arrayFinale[]=$arr;
+        }
+
         return response()->json([
             'success' => true,
-            'results' => $doctor
+            'results' => $arrayFinale
         ]);
     }
 }
