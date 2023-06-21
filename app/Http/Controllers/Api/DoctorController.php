@@ -14,7 +14,7 @@ class DoctorController extends Controller
     // QUERY FOR ALL DOCTORS
     public function index()
     {
-        $doctors = Doctor::with('specializations', 'user')->get();
+        $doctors = Doctor::with('specializations', 'user')->withCount('reviews')->get();
 
         return response()->json([
             'success' => true,
@@ -34,7 +34,7 @@ class DoctorController extends Controller
     }
     // QUERY FOR DOCTORS SEARCH BY NAME AND SURNAME
     public function search(string $text){
-        $doctor=Doctor::with('user','specializations')->join('users', 'users.doctor_id', '=', 'doctors.id')->where('users.name','LIKE','%'.$text.'%')->orWhere('users.surname','LIKE','%'.$text.'%')->select('doctors.*')->get();
+        $doctor=Doctor::with('user','specializations')->join('users', 'users.doctor_id', '=', 'doctors.id')->where('users.name','LIKE','%'.$text.'%')->orWhere('users.surname','LIKE','%'.$text.'%')->select('doctors.*')->withCount('reviews')->get();
 
         return response()->json([
             'success' => true,
@@ -44,7 +44,7 @@ class DoctorController extends Controller
 
     // QUERY FOR DOCTORS SEARCH BY ID_SPECIALIZATION
     public function searchBySpec(int $idSpec){
-        $doctor= Doctor::join('doctor_specialization', 'doctor_specialization.doctor_id','=', 'doctors.id')->where('doctor_specialization.specialization_id', $idSpec)->select('doctors.*')->with('user','specializations')->get();
+        $doctor= Doctor::join('doctor_specialization', 'doctor_specialization.doctor_id','=', 'doctors.id')->where('doctor_specialization.specialization_id', $idSpec)->select('doctors.*')->with('user','specializations')->withCount('reviews')->get();
 
         return response()->json([
             'success' => true,
