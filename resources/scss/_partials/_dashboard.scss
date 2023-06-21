@@ -8,6 +8,14 @@
         right: 0;
     }
 }
+.profile-img{
+    img{
+        width: 200px;
+        height: 200px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+}
 
 .btn_color{
     padding: 10px 20px;

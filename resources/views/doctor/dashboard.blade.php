@@ -5,20 +5,24 @@
 
 <div class="background_color">
     <div class="container">
-        <h2 class="fs-4 text-secondary my-4 text-light">
+        <h2 class="fs-4 text-secondary text-center my-4 text-light">
             {{ __('My Dashboard') }}
         </h2>
             {{-- USER-INFO --}}
         @if ($user->doctor)
         <div class="profile-img d-flex align-items-center my-4 text-light border-bottom border-primary pb-3">
-            <img src="{{ $user->doctor->image }}" alt="{{ $user->doctor->name }}">
-            <div class="ms-4 mt-4">
-                <ul>
-                    <h3>{{ $user->name }} {{ $user->surname }}</h3>
-                    <li>Email: {{ $user->email }}</li>
-                    <li>Address: {{ $user->address }}</li>
-                    <li>Telephone: {{ $user->doctor->telephone }}</li>
-                    <li>Performance: {{ $user->doctor->performance }}</li>
+            <div class="pt-4 pe-3">
+                <img src="{{ $user->doctor->image }}" alt="{{ $user->doctor->name }}">
+            </div>
+
+            <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
+                <span class="badge text-bg-success">Basic</span>
+                <h3 class="mb-2">Dr. {{ $user->name }} {{ $user->surname }}</h3>
+                <ul class="d-flex flex-column gap-2">
+                    <li><i class="fa-solid fa-envelope"></i> {{ $user->email }}</li>
+                    <li><i class="fa-solid fa-location-dot"></i> {{ $user->address }}</li>
+                    <li><i class="fa-solid fa-phone-flip"></i> {{ $user->doctor->telephone }}</li>
+                    <li><i class="fa-solid fa-briefcase-medical"></i> {{ $user->doctor->performance }}</li>
                 </ul>
             </div>
         </div>
