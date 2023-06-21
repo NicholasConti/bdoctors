@@ -10,11 +10,25 @@ Una piattaforma specializzata nella prenotazione online di visite mediche per re
 - [@MaurizioGallotti](https://github.com/Th4Dude)
 - [@IvanRizzo](https://www.github.com/IvanRizzo28)
 
+## Week 1
 
+- Implementazione migration e seeder e impostazione CRUD
+- Registrazione utente
+- Creazione e modifica profilo
+- Gestione CV
 
+## Week 2
 
+- Completare le CRUD con le validazioni ed i controlli annessi ed impostare la ricerca
+- Pagina di ricerca avanzata con filtri
+- Visualizzazione del profilo scelto
 ## Tech Stack
 
-**Client:** VueJS, Bootstrap,
+**Client:** 
+- VueJS
+- Bootstrap,
 
-**Server:** Laravel, Blade, MySQL
+**Server:** 
+- Laravel
+- Blade
+- MySQL
