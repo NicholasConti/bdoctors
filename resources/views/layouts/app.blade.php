@@ -48,18 +48,18 @@
                         {{-- mostra i due link se è un dottore autenticato --}}
                         @if (!auth()->user() || !auth()->user()->doctor)
                             <li class="nav-item d-none">
-                                <a class="hov nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
+                                <a class="nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
                             </li>
                             <li class="nav-item d-none">
-                                <a class="hov nav-link" href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
+                                <a class="nav-link" href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
                             </li>
                         @else()
                             <li class="nav-item">
-                                <a class="hov nav-link"
+                                <a class="nav-link"
                                     href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="hov nav-link"
+                                <a class="nav-link"
                                     href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
                             </li>
                         @endif
