@@ -54,7 +54,7 @@
             {{-- / --}}
             {{-- USER-RIGHT-SIDE --}}
             <div class="offcanvas_box col-12">
-                
+
                 {{-- Offcanvas_Messages --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
@@ -65,7 +65,7 @@
                         <div>
                             <ul class="list-group">
                                     @forelse ($user->doctor->messages as $key=>$item)
-                                <li class="list-group-item">{{ $key+1 }} - {{ $item->text_message }}</li>
+                                <li class="list-group-item d-flex justify-content-between"><span>{{ $key+1 }} - {{ $item->text_message }}</span> <span class="badge text-bg-success text-wrap">{{ $item->name }}</span></li>
                                     @empty
                                 <li class="list-group-item">Nessun messaggio!</li>
                                     @endforelse
@@ -114,7 +114,7 @@
                        <div class="offcanvas-body">
                                 {{-- SPONSORSHIPS --}}
                             <form id="package-form" >
-                               
+
                                 <div class="container-fluid">
                                     <div class="row d-flex justify-content-center">
                                         @foreach ($sponsor as $sponsorship)
@@ -148,8 +148,8 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </div>                                           
-                                      
+                                            </div>
+
                                         @endforeach
                                     </div>
                                     <div class="d-flex justify-content-center  m-3">
