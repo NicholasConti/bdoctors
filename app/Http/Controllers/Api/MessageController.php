@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Message;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -15,8 +16,9 @@ class MessageController extends Controller
             'text_message' => 'required|string',
             'doctor_id' => 'required|integer|exists:doctors,id'
         ]);
-
         $data=$request->all();
+        $newMessage=new Message();
+        $newMessage->create($data);
 
         return response()->json([
             'success' => true,
