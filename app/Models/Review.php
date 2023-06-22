@@ -9,6 +9,8 @@ class Review extends Model
 {
     use HasFactory;
 
+    protected $guarded=['vote'];
+
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
