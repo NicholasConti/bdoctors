@@ -54,7 +54,7 @@
             {{-- / --}}
             {{-- USER-RIGHT-SIDE --}}
             <div class="offcanvas_box col-12">
-                
+
                 {{-- Offcanvas_Messages --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
                     <div class="offcanvas-header">
@@ -63,17 +63,29 @@
                     <div class="offcanvas-body">
                             {{-- MESSAGES --}}
                         <div>
-                            <ul class="list-group">
-                                    @forelse ($user->doctor->messages as $key=>$item)
-                                <li class="list-group-item">{{ $key+1 }} - {{ $item->text_message }}</li>
-                                    @empty
-                                <li class="list-group-item">Nessun messaggio!</li>
-                                    @endforelse
-                            </ul>
+                            @forelse ($user->doctor->messages as $key=>$item)
+                            <section>
+                                <article>
+                                    <span>Message from <a href="/">westerndudes@redventures.com</a></span>
+                                    <p class="greeting">Hey Buddy!</p>
+                                    <p>{{ $key+1 }} - {{ $item->text_message }}</p>
+                                    <p class="closing">Cheers.</p>
+                                </article>
+                                    <div class="actions">
+                                        <a href="#">Cancel</a>
+                                        <a href="#">Reply</a>
+                                    </div>
+                            </section>
+
+                            @empty
+                            <span class="list-group-item">Nessun messaggio!</span>
+                            @endforelse
                         </div>
+
+
                     </div>
                 </div>
-                {{-- Offcanvas_Messages --}}
+                {{-- /Offcanvas_Messages --}}
 
                 {{-- Offcanvas_Votes&reviews --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
@@ -111,10 +123,10 @@
                         <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto</h3>
                     </div>
                     <div class="offcanvas-body">
-                       <div class="offcanvas-body">
+                        <div class="offcanvas-body">
                                 {{-- SPONSORSHIPS --}}
                             <form id="package-form" >
-                               
+
                                 <div class="container-fluid">
                                     <div class="row d-flex justify-content-center">
                                         @foreach ($sponsor as $sponsorship)
@@ -148,8 +160,8 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </div>                                           
-                                      
+                                            </div>
+
                                         @endforeach
                                     </div>
                                     <div class="d-flex justify-content-center  m-3">
