@@ -11,8 +11,7 @@
             {{-- USER-INFO --}}
         @if ($user->doctor)
         <div class="profile-img d-flex align-items-center my-4 text-light border-bottom border-primary pb-3">
-            <div class="pt-4 pe-3 d-flex flex-column align-items-center">
-
+            <div class="pt-4 pe-3">
                 <img src="{{ $user->doctor->image }}" alt="{{ $user->doctor->name }}">
             </div>
 
