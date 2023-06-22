@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\DoctorController;
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\SpecializationsController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ Route::get('doctors/{id}', [DoctorController::class, 'show']);
 Route::get('doctors/specialization/{id}', [DoctorController::class, 'searchBySpec']);
 Route::get('doctors/filter/vote', [DoctorController::class,'filterVote']);
 Route::get('doctors/search/{text}',[DoctorController::class, 'search']);
+Route::post('doctors/message',[MessageController::class, 'store']);
 
 Route::get('specializations', [SpecializationsController::class, 'index']);
 
