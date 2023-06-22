@@ -12,13 +12,16 @@
         @if ($user->doctor)
         <div class="profile-img d-flex align-items-center my-4 text-light border-bottom border-primary pb-3">
             <div class="pt-4 pe-3 d-flex flex-column align-items-center">
-                <span class="badge text-bg-success w-75">Basic</span>
+
                 <img src="{{ $user->doctor->image }}" alt="{{ $user->doctor->name }}">
             </div>
 
             <div class="pe-5 me-5 mt-4 pt-2 d-flex flex-column gap-1">
+                <div class="d-flex">
+                    <h3>Dr. {{ $user->name }} {{ $user->surname }}</h3>
+                    <span class="badge text-bg-success ms-2 mt-2" style="height: 20px;">Basic</span>
+                </div>
 
-                <h3 class="mb-2">Dr. {{ $user->name }} {{ $user->surname }}</h3>
                 <ul class="d-flex flex-column gap-2">
                     <li><i class="fa-solid fa-envelope me-2"></i> {{ $user->email }}</li>
                     <li><i class="fa-solid fa-location-dot me-2"></i> {{ $user->address }}</li>
