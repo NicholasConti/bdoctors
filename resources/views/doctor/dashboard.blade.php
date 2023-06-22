@@ -63,14 +63,28 @@
                     <div class="offcanvas-body">
                             {{-- MESSAGES --}}
                         <div>
-                            <ul class="list-group">
+                            {{-- <ul class="list-group"> --}}
                                     @forelse ($user->doctor->messages as $key=>$item)
-                                <li class="list-group-item">{{ $key+1 }} - {{ $item->text_message }}</li>
+                                    <section>
+                                        <article>
+                                          <span>Message from <a href="/">westerndudes@redventures.com</a></span>
+                                          <p class="greeting">Hey Buddy!</p>
+                                          <p>{{ $key+1 }} - {{ $item->text_message }}</p>
+                                          <p class="closing">Cheers.</p>
+                                         </article>
+                                          <div class="actions">
+                                            <a href="#">Cancel</a>
+                                            <a href="#">Reply</a>
+                                          </div>
+                                      </section>
+                                {{-- <li class="list-group-item">{{ $key+1 }} - {{ $item->text_message }}</li> --}}
                                     @empty
                                 <li class="list-group-item">Nessun messaggio!</li>
                                     @endforelse
-                            </ul>
+                            {{-- </ul> --}}
                         </div>
+                        
+
                     </div>
                 </div>
                 {{-- Offcanvas_Messages --}}
