@@ -37,10 +37,17 @@
                 </div>
                 <div class="mb-3">
                     <label for="cv" class="form-label">Curriculum</label>
+                    @if ($doc->cv)
+                    <span class="badge rounded-pill text-bg-info ms-2">File already updated</span>
+                    @endif
                     <input class="form-control" type="file" id="cv" name="cv">
                      <!-- profile cv preview -->
                      <div class="preview pt-2">
-                        <object data="{{ $doc->cv }}" type="application/pdf" width="20%" class="border border-dark rounded"></object>
+                        @if ($doc->cv)
+                        <a href="{{$doc->cv}}" target="_blank" class="badge rounded-pill text-bg-warning">Click to see</a>
+                            
+                        @endif
+                        {{-- <object data="{{ $doc->cv }}" type="application/pdf" width="20%" class="border border-dark rounded"></object> --}}
                     </div>
                     <!-- /profile cv preview -->
                 </div>
