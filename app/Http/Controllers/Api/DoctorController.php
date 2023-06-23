@@ -7,6 +7,7 @@ use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Sponsorship;
 use App\Models\User;
 
 class DoctorController extends Controller
@@ -19,6 +20,37 @@ class DoctorController extends Controller
         return response()->json([
             'success' => true,
             'results' => $doctors
+        ]);
+    }
+
+    // QUERY FOR SPONSORSHIP ACTIVE DOCTORS
+    public function sponsor(){
+        $doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->join('doctor_sponsorship as sponsor', 'sponsor.doctor_id', '=', 'doctors.id')->where('sponsor.end_date', '>=', date('Y-m-d'))->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $doctors
+        ]);
+    }
+
+    // QUERY FOR NON SPONSORSHIP ACTIVE DOCTORS
+    public function noSponsor(){
+        //$doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->leftJoin('doctor_sponsorship as sponsor', 'sponsor.doctor_id', '=', 'doctors.id')->select('doctors.*', 'sponsor.id as id_sponsor')->get();
+        $doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->join('doctor_sponsorship as sponsor', 'sponsor.doctor_id', '=', 'doctors.id')->where('sponsor.end_date', '>=', date('Y-m-d'))->get();
+        $doc=Doctor::all();
+        $doctorsNoSponsor=[];
+        dd($doctors);
+        /*foreach ($doctors as $value) {
+            if ($value['id_sponsor'] != null){
+
+                //if (count($sponsor) == 0) $doctorsNoSponsor[]=$value;
+            }
+            else $doctorsNoSponsor[]=$value;
+        }*/
+
+        return response()->json([
+            'success' => true,
+            'results' => $doctorsNoSponsor
         ]);
     }
 
