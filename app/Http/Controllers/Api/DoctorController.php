@@ -15,12 +15,6 @@ class DoctorController extends Controller
     // QUERY FOR ALL DOCTORS
     public function index()
     {
-        /*$doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->get();
-
-        return response()->json([
-            'success' => true,
-            'results' => $doctors
-        ]);*/
         $doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->with(
             ['sponsorships' => function($item){
                 return $item->where('end_date' , '>=', date('Y-m-d'));
@@ -108,6 +102,20 @@ class DoctorController extends Controller
         return response()->json([
             'success' => true,
             'results' => $doc
+        ]);
+    }
+
+    // QUERY FOR DOCTORS SEARCH BY MIN MEDIA VOTE
+    public function searchByVote(int $vote){
+        $doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->having('votes_avg_vote', '>=', $vote)->with(
+            ['sponsorships' => function($item){
+                return $item->where('end_date' , '>=', date('Y-m-d'));
+            }]
+        )->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $doctors
         ]);
     }
 
