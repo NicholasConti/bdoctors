@@ -185,8 +185,8 @@
                     </div>
                     <div class="offcanvas-body">
                             {{-- CV --}}
-                        <div>
-                            <object data="{{ $user->doctor->cv }}" type="application/pdf" width="100%" height="500px"></object>
+                        <div class="d-flex justify-content-center">
+                            <object data="{{ $user->doctor->cv }}" type="application/pdf" width="60%" height="800px"></object>
                         </div>
                     </div>
                 </div>
