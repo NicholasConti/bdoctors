@@ -65,21 +65,49 @@ class DoctorController extends Controller
     }
     // QUERY FOR DOCTORS SEARCH BY NAME AND SURNAME
     public function search(string $text){
-        $doctor=Doctor::with('user')->join('users', 'users.doctor_id', '=', 'doctors.id')->where('users.name','LIKE','%'.$text.'%')->orWhere('users.surname','LIKE','%'.$text.'%')->select('doctors.*')->withCount('reviews')->withAvg('votes', 'vote')->get();
+        $doctors=Doctor::with('user')->join('users', 'users.doctor_id', '=', 'doctors.id')->where('users.name','LIKE','%'.$text.'%')->orWhere('users.surname','LIKE','%'.$text.'%')->select('doctors.*')->withCount('reviews')->withAvg('votes', 'vote')->withCount('reviews')->withAvg('votes', 'vote')->with(
+            ['sponsorships' => function($item){
+                return $item->where('end_date' , '>=', date('Y-m-d'));
+            }]
+        )->get();
+
+        $doc=[];
+
+        foreach ($doctors as $item) {
+            if (count($item['sponsorships']) > 0) $doc[]=$item;
+        }
+
+        foreach ($doctors as $item) {
+            if (count($item['sponsorships']) == 0) $doc[]=$item;
+        }
 
         return response()->json([
             'success' => true,
-            'results' => $doctor
+            'results' => $doc
         ]);
     }
 
     // QUERY FOR DOCTORS SEARCH BY ID_SPECIALIZATION
     public function searchBySpec(int $idSpec){
-        $doctor= Doctor::join('doctor_specialization', 'doctor_specialization.doctor_id','=', 'doctors.id')->where('doctor_specialization.specialization_id', $idSpec)->select('doctors.*')->with('user')->withCount('reviews')->withAvg('votes', 'vote')->get();
+        $doctors= Doctor::join('doctor_specialization', 'doctor_specialization.doctor_id','=', 'doctors.id')->where('doctor_specialization.specialization_id', $idSpec)->select('doctors.*')->with('user')->withCount('reviews')->withAvg('votes', 'vote')->with(
+            ['sponsorships' => function($item){
+                return $item->where('end_date' , '>=', date('Y-m-d'));
+            }]
+        )->get();
+
+        $doc=[];
+
+        foreach ($doctors as $item) {
+            if (count($item['sponsorships']) > 0) $doc[]=$item;
+        }
+
+        foreach ($doctors as $item) {
+            if (count($item['sponsorships']) == 0) $doc[]=$item;
+        }
 
         return response()->json([
             'success' => true,
-            'results' => $doctor
+            'results' => $doc
         ]);
     }
 
