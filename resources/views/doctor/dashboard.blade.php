@@ -67,25 +67,26 @@
                             {{-- MESSAGES --}}
                         <div>
                             @forelse ($user->doctor->messages as $key=>$item)
-                            <section>
-                                <article>
-                                    <span>Message from <a href="/">westerndudes@redventures.com</a></span>
-                                    <p class="greeting">Hey Buddy!</p>
-                                    <p>{{ $key+1 }} - {{ $item->text_message }}</p>
-                                    <p class="closing">Cheers.</p>
-                                </article>
-                                    <div class="actions">
-                                        <a href="#">Cancel</a>
-                                        <a href="#">Reply</a>
+                            <div class="bg_color_light  m-2 py-1">
+                                <div class="m-1">
+                                    <div class="badge text-bg-success text-wrap m-1">
+                                        <h5>Message from: {{ $item->email }}</h5>
                                     </div>
-                            </section>
-
+                                    <div class="px-1">
+                                        <h6>{{ $item->name }}</h6>
+                                        <h6>{{ $key+1 }} - {{ $item->text_message }}</h6>
+                                    </div>
+                                    
+                                </div>
+                                    <div class="actions text-center">
+                                        <a class="fs-4 color_link" href="#">Cancel</a>
+                                        <a class="fs-4 color_link" href="#">Reply</a>
+                                    </div>
+                            </div>
                             @empty
                             <span class="list-group-item">Nessun messaggio!</span>
                             @endforelse
                         </div>
-
-
                     </div>
                 </div>
                 {{-- /Offcanvas_Messages --}}
@@ -97,27 +98,50 @@
                     </div>
                     <div class="offcanvas-body">
                             {{-- VOTES --}}
-                        <div>
-                            <?php $mediaVoto = 0; ?>
-                            @foreach ($user->doctor->votes as $item)
-                                <?php $mediaVoto += $item->vote; ?>
-                            @endforeach
-                                <?php if ($mediaVoto>0) $mediaVoto = $mediaVoto / count($user->doctor->votes); ?>
-                                <p class="d-inline-block">{{ $mediaVoto }}</p>
-                        </div>
+                            <div>
+                                <?php $mediaVoto = 0; ?>
+                                @foreach ($user->doctor->votes as $item)
+                                    <?php $mediaVoto += $item->vote; ?>
+                                @endforeach
+                                    <?php if ($mediaVoto>0) $mediaVoto = $mediaVoto / count($user->doctor->votes); ?>
+                                    <div class="d-inline-block">
+                                        <h5>Avg doctor vote:{{ $mediaVoto }}</h5>
+                                    </div>
+                            </div>
                             {{-- REVIEWS --}}
-                        <div>
-                            <ul class="list-group">
+                        
+                            <div class="m-2 py-1">
                                 @forelse ($user->doctor->reviews as $key=>$item)
-                                <li class="list-group-item d-flex justify-content-between"><span>{{ $key+1 }} - {{ $item->text_review }}</span> <span class="badge text-bg-success text-wrap">{{ $item->name }}</span></li>
+                                <div class="py-2 m-2 bg_color_light">
+                                    <div class="badge text-bg-success text-wrap m-1">
+                                        <h5>Review recived by: {{ $item->name }}</h5>
+                                    </div>
+                                    <div class="py-2 m-1">
+                                        <h6>{{ $key+1 }} - {{ $item->text_review }}</h6>
+                                    </div> 
+                                    <div class="actions text-center">
+                                        <a class="fs-4 color_link" href="#">Cancel</a>
+                                        <a class="fs-4 color_link" href="#">Reply</a>
+                                    </div>
+                                </div>
                                 @empty
                                 <li class="list-group-item">Nessuna recensione!</li>
                                 @endforelse
-                            </ul>
-                        </div>
+                            </div>    
                     </div>
                 </div>
+
                 {{-- Offcanvas_Votes&reviews --}}
+
+
+
+
+
+
+
+
+
+
 
                 {{-- Offcanvas_Sponsorship --}}
 
@@ -184,8 +208,8 @@
                     </div>
                     <div class="offcanvas-body">
                             {{-- CV --}}
-                        <div>
-                            <object data="{{ $user->doctor->cv }}" type="application/pdf" width="100%" height="500px"></object>
+                        <div class="d-flex justify-content-center">
+                            <object data="{{ $user->doctor->cv }}" type="application/pdf" width="60%" height="800px"></object>
                         </div>
                     </div>
                 </div>

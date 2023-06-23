@@ -28,6 +28,7 @@ Route::get('doctors', [DoctorController::class, 'index']);
 Route::get('doctors/sponsor', [DoctorController::class, 'sponsor']);
 Route::get('doctors/{id}', [DoctorController::class, 'show']);
 Route::get('doctors/specialization/{id}', [DoctorController::class, 'searchBySpec']);
+Route::get('doctors/vote/{vote}', [DoctorController::class, 'searchByVote']);
 Route::get('doctors/filter/vote', [DoctorController::class,'filterVote']);
 Route::get('doctors/search/{text}',[DoctorController::class, 'search']);
 Route::post('doctors/message',[MessageController::class, 'store']);
