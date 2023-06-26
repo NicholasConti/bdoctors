@@ -7,13 +7,16 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{ Vite::asset('../../../storage/app/public/uploads/favicon2.ico') }}" type="image/x-icon">
+    <title>BDoctors{{-- {{ config('app.name', 'Laravel') }} --}}</title>
 
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -23,7 +26,7 @@
     <div id="app">
         <nav class="header navbar navbar-expand-md navbar-light">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5173/') }}">
                     <div class="logo_laravel">
                         <img src="{{ Vite::asset('../../../storage/app/public/uploads/logo-2.png') }}" alt="doc-logo">
                         <img src="{{ Vite::asset('../../../storage/app/public/uploads/logo_fb2.jpg') }}" alt="doc-logo">
