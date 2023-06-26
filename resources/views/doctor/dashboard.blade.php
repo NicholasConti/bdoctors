@@ -183,7 +183,7 @@
                                                             <div class="inner">
                                                                 <span class="pricing">
                                                                     <span>
-                                                                        ${{ $sponsorship->price }}
+                                                                        {{ $sponsorship->price }}$
                                                                     </span>
                                                                 </span>
                                                                 <p class="title"><input type="radio" name="package"
@@ -205,7 +205,7 @@
                                                                             </svg>
                                                                         </span>
                                                                         <span
-                                                                            class="color_sponsor_text">Duration<strong>{{ $sponsorship->duration }}hrs</strong></span>
+                                                                            class="color_sponsor_text">Duration<strong> {{ $sponsorship->duration }}hrs</strong></span>
                                                                     </li>
                                                                     <li>
                                                                         <span class="icon">
@@ -220,7 +220,7 @@
                                                                             </svg>
                                                                         </span>
                                                                         <span class="color_sponsor_text">Price
-                                                                            <strong>${{ $sponsorship->price }}</strong></span>
+                                                                            <strong> {{ $sponsorship->price }}$</strong></span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
