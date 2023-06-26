@@ -7,8 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{ Vite::asset('../../../storage/app/public/uploads/favicon2.ico') }}" type="image/x-icon">
+    <title>BDoctors{{-- {{ config('app.name', 'Laravel') }} --}}</title>
 
 
     <!-- Fonts -->
