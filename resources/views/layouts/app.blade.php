@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="header navbar navbar-expand-md navbar-light">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5173/') }}">
                     <div class="logo_laravel">
                         <img src="{{ Vite::asset('../../../storage/app/public/uploads/logo-2.png') }}" alt="doc-logo">
                         <img src="{{ Vite::asset('../../../storage/app/public/uploads/logo_fb2.jpg') }}" alt="doc-logo">
