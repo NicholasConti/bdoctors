@@ -31,4 +31,3 @@ function showPreviewCv() {
         previewCv.style.display = "block";
     }
 }
-

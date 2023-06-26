@@ -60,14 +60,14 @@
 
                 {{-- Offcanvas_Messages --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Messages received</h5>
+                    <div class="offcanvas-header d-flex justify-content-center">
+                        <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Messages received</h3>
                     </div>
                     <div class="offcanvas-body">
                             {{-- MESSAGES --}}
                         <div>
                             @forelse ($user->doctor->messages as $key=>$item)
-                            <div class="bg_color_light  m-2 py-1">
+                            <div class="bg_color_light m-2 py-1">
                                 <div class="m-1">
                                     <div class="badge text-bg-success text-wrap m-1">
                                         <h5>Message from: {{ $item->email }}</h5>
@@ -76,15 +76,15 @@
                                         <h6>{{ $item->name }}</h6>
                                         <h6>{{ $key+1 }} - {{ $item->text_message }}</h6>
                                     </div>
-                                    
+
                                 </div>
                                     <div class="actions text-center">
-                                        <a class="fs-4 color_link" href="#">Cancel</a>
-                                        <a class="fs-4 color_link" href="#">Reply</a>
+                                        <a class="fw-bolder border px-2 py-1 text-light rounded bg-info me-1" href="#">Reply</a>
+                                        <a class="fw-bolder border px-2 py-1 text-light rounded bg-danger" href="#">Delete</a>
                                     </div>
                             </div>
                             @empty
-                            <span class="list-group-item">Nessun messaggio!</span>
+                            <span class="list-group-item">No messages yet</span>
                             @endforelse
                         </div>
                     </div>
@@ -93,8 +93,8 @@
 
                 {{-- Offcanvas_Votes&reviews --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Your Votes and Reviews</h5>
+                    <div class="offcanvas-header d-flex justify-content-center">
+                        <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Your Votes and Reviews</h3>
                     </div>
                     <div class="offcanvas-body">
                             {{-- VOTES --}}
@@ -105,57 +105,43 @@
                                 @endforeach
                                     <?php if ($mediaVoto>0) $mediaVoto = $mediaVoto / count($user->doctor->votes); ?>
                                     <div class="d-inline-block">
-                                        <h5>Avg doctor vote:{{ $mediaVoto }}</h5>
+                                        <h5>Avg doctor vote: {{ $mediaVoto }}</h5>
                                     </div>
                             </div>
                             {{-- REVIEWS --}}
-                        
+
                             <div class="m-2 py-1">
                                 @forelse ($user->doctor->reviews as $key=>$item)
                                 <div class="py-2 m-2 bg_color_light">
-                                    <div class="badge text-bg-success text-wrap m-1">
-                                        <h5>Review recived by: {{ $item->name }}</h5>
+                                    <div class="badge text-bg-primary text-wrap m-2">
+                                        <h5 class="text-light pt-2">From: {{ $item->name }}</h5>
                                     </div>
                                     <div class="py-2 m-1">
                                         <h6>{{ $key+1 }} - {{ $item->text_review }}</h6>
-                                    </div> 
+                                    </div>
                                     <div class="actions text-center">
-                                        <a class="fs-4 color_link" href="#">Cancel</a>
-                                        <a class="fs-4 color_link" href="#">Reply</a>
+                                        <a class="fw-bolder border px-2 py-1 text-light rounded bg-info me-1" href="#">Reply</a>
+                                        <a class="fw-bolder border px-2 py-1 text-light rounded bg-danger" href="#">Delete</a>
                                     </div>
                                 </div>
                                 @empty
                                 <li class="list-group-item">Nessuna recensione!</li>
                                 @endforelse
-                            </div>    
+                            </div>
                     </div>
                 </div>
-
-                {{-- Offcanvas_Votes&reviews --}}
-
-
-
-
-
-
-
-
-
-
-
+                {{-- /Offcanvas_Votes&reviews --}}
                 {{-- Offcanvas_Sponsorship --}}
-
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasSponsorship" aria-labelledby="offcanvasScrollingLabel">
                     <div class="d-flex justify-content-center m-3">
-                        <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto</h3>
+                        <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Choose your plan</h3>
                     </div>
                     <div class="offcanvas-body">
                         <div class="offcanvas-body">
                                 {{-- SPONSORSHIPS --}}
                             <form id="package-form" >
-
                                 <div class="container-fluid">
-                                    <div class="row d-flex justify-content-center">
+                                    <div class="row d-flex justify-content-center mb-5">
                                         @foreach ($sponsor as $sponsorship)
                                             <div class="plan d-flex">
                                                 <div class="inner">
@@ -203,8 +189,8 @@
 
                 {{-- Offcanvas_CV --}}
                 <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true" data-bs-backdrop="false" id="offcanvasCV" aria-labelledby="offcanvasScrollingLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">CV</h5>
+                    <div class="offcanvas-header d-flex justify-content-center">
+                        <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Your CV</h3>
                     </div>
                     <div class="offcanvas-body">
                             {{-- CV --}}
