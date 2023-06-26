@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();
             $table->foreignId('sponsorship_id')->constrained()->cascadeOnDelete();
-            $table->date('end_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
     }

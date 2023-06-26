@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\Admin\DashBoardController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Doctor\DoctorController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Doctor\MessageController;
+use App\Http\Controllers\Doctor\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +40,9 @@ Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(
 
 
     // Mostra il modulo di pagamento
-    Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+    //Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
+    Route::post('/payment', [PaymentController::class, 'create'])->name('payment');
+    Route::post('/payment/confirmed', [PaymentController::class, 'store'])->name('payment.confirmed');
 
     //messaggi
     Route::get('/message',[MessageController::class,'index'])->name('message');

@@ -173,7 +173,8 @@
                                             <h4>Hai già una sponsorship attiva!</h4>
                                         </div>
                                     @else
-                                        <form id="package-form">
+                                        <form id="package-form" action="{{ route('doctor.payment') }}" method="POST">
+                                            @csrf
 
                                             <div class="container-fluid">
                                                 <div class="row d-flex justify-content-center">
