@@ -22,7 +22,7 @@ class PaymentController extends Controller
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
         )->first();
-        if (!$isSponsor){
+        if (count($isSponsor->sponsorships) === 0){
             $data=$request->all();
             return view('doctor.form', compact('data'));
         }
@@ -41,7 +41,7 @@ class PaymentController extends Controller
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
         )->first();
-        if (!$isSponsor){
+        if (count($isSponsor->sponsorships) === 0){
             $data=$request->all();
             $newSponsor=$user->doctor;
             $sponsorDuration=Sponsorship::where('id', $data['id_sponsor'])->select('duration')->first();
