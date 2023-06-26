@@ -15,7 +15,7 @@ class DoctorController extends Controller
     // QUERY FOR ALL DOCTORS
     public function index()
     {
-        $doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->with(
+        $doctors = Doctor::with('user', 'specializations')->withCount('reviews')->withAvg('votes', 'vote')->with(
             ['sponsorships' => function($item){
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
@@ -39,7 +39,7 @@ class DoctorController extends Controller
 
     // QUERY FOR SPONSORSHIP ACTIVE DOCTORS
     public function sponsor(){
-        $doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->join('doctor_sponsorship as sponsor', 'sponsor.doctor_id', '=', 'doctors.id')->where('sponsor.end_date', '>=', date('Y-m-d'))->get();
+        $doctors = Doctor::with('user','specializations')->withCount('reviews')->withAvg('votes', 'vote')->join('doctor_sponsorship as sponsor', 'sponsor.doctor_id', '=', 'doctors.id')->where('sponsor.end_date', '>=', date('Y-m-d'))->get();
 
         return response()->json([
             'success' => true,
@@ -59,7 +59,7 @@ class DoctorController extends Controller
     }
     // QUERY FOR DOCTORS SEARCH BY NAME AND SURNAME
     public function search(string $text){
-        $doctors=Doctor::with('user')->join('users', 'users.doctor_id', '=', 'doctors.id')->where('users.name','LIKE','%'.$text.'%')->orWhere('users.surname','LIKE','%'.$text.'%')->select('doctors.*')->withCount('reviews')->withAvg('votes', 'vote')->withCount('reviews')->withAvg('votes', 'vote')->with(
+        $doctors=Doctor::with('user','specializations')->join('users', 'users.doctor_id', '=', 'doctors.id')->where('users.name','LIKE','%'.$text.'%')->orWhere('users.surname','LIKE','%'.$text.'%')->select('doctors.*')->withCount('reviews')->withAvg('votes', 'vote')->withCount('reviews')->withAvg('votes', 'vote')->with(
             ['sponsorships' => function($item){
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
@@ -83,7 +83,7 @@ class DoctorController extends Controller
 
     // QUERY FOR DOCTORS SEARCH BY ID_SPECIALIZATION
     public function searchBySpec(int $idSpec){
-        $doctors= Doctor::join('doctor_specialization', 'doctor_specialization.doctor_id','=', 'doctors.id')->where('doctor_specialization.specialization_id', $idSpec)->select('doctors.*')->with('user')->withCount('reviews')->withAvg('votes', 'vote')->with(
+        $doctors= Doctor::join('doctor_specialization', 'doctor_specialization.doctor_id','=', 'doctors.id')->where('doctor_specialization.specialization_id', $idSpec)->select('doctors.*')->with('user','specializations')->withCount('reviews')->withAvg('votes', 'vote')->with(
             ['sponsorships' => function($item){
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
@@ -107,7 +107,7 @@ class DoctorController extends Controller
 
     // QUERY FOR DOCTORS SEARCH BY MIN MEDIA VOTE
     public function searchByVote(int $vote){
-        $doctors = Doctor::with('user')->withCount('reviews')->withAvg('votes', 'vote')->having('votes_avg_vote', '>=', $vote)->with(
+        $doctors = Doctor::with('user','specializations')->withCount('reviews')->withAvg('votes', 'vote')->having('votes_avg_vote', '>=', $vote)->with(
             ['sponsorships' => function($item){
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
