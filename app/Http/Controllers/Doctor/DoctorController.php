@@ -48,7 +48,7 @@ class DoctorController extends Controller
         ]);
         $user = auth()->user();
 
-        if (!$user->doctor_id){
+        if (!$user->doctor_id) {
             $doc = $request->all();
             $doctor = new Doctor();
 
@@ -68,17 +68,17 @@ class DoctorController extends Controller
             $user->doctor_id = $doctor->id;
             $user->update();
         }
-        $spec=Specialization::all();
-        $sponsor=Sponsorship::all();
+        $spec = Specialization::all();
+        $sponsor = Sponsorship::all();
 
-        $isSponsor=$user->doctor()->with(
-            ['sponsorships' => function($item){
-                return $item->where('end_date' , '>=', date('Y-m-d'));
+        $isSponsor = $user->doctor()->with(
+            ['sponsorships' => function ($item) {
+                return $item->where('end_date', '>=', date('Y-m-d'));
             }]
         )->first();
-        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
-        else $isSponsor=null;
-        return view('doctor.dashboard', compact('user','spec','sponsor','isSponsor'));
+        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor = $isSponsor->sponsorships[0];
+        else $isSponsor = null;
+        return view('doctor.dashboard', compact('user', 'spec', 'sponsor', 'isSponsor'));
     }
 
     /**
@@ -143,15 +143,16 @@ class DoctorController extends Controller
         }
 
         $user = $doc->user;
-        $sponsor=Sponsorship::all();
-        $isSponsor=$user->doctor()->with(
-            ['sponsorships' => function($item){
-                return $item->where('end_date' , '>=', date('Y-m-d'));
+        $sponsor = Sponsorship::all();
+        $isSponsor = $user->doctor()->with(
+            ['sponsorships' => function ($item) {
+                return $item->where('end_date', '>=', date('Y-m-d'));
             }]
         )->first();
-        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
-        else $isSponsor=null;
-        return view('doctor.dashboard', compact('user','sponsor','isSponsor'));
+        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor = $isSponsor->sponsorships[0];
+        else $isSponsor = null;
+        //return view('doctor.dashboard', compact('user', 'sponsor', 'isSponsor'));
+        return redirect()->route('doctor.dashboard')->with('edited', "Profile edited succesfully!!");
     }
 
     /**

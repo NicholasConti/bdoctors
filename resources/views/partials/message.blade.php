@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-    @elseif (session('edit'))
+    @elseif (session('edited'))
     <div class="toast-container position-fixed top-0 end-0 p-3">
       <div id="liveToast" class="toast show text-bg-warning" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -18,11 +18,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-         {{session('edit')}}
+         {{session('edited')}}
         </div>
       </div>
     </div>
-    @elseif (session('delete'))
+    @elseif (session('problem'))
     <div class="toast-container position-fixed top-0 end-0 p-3">
       <div id="liveToast" class="toast show text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -30,7 +30,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body">
-         {{session('delete')}}
+         {{session('problem')}}
         </div>
       </div>
     </div>

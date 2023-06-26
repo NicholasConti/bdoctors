@@ -10,37 +10,40 @@ use App\Models\Sponsorship;
 
 class PaymentController extends Controller
 {
-    public function create(Request $request){
+    public function create(Request $request)
+    {
         $request->validate([
             'package' => 'exists:sponsorships,id'
         ]);
 
         $user = auth()->user();
 
-        $isSponsor=$user->doctor()->with(
-            ['sponsorships' => function($item){
-                return $item->where('end_date' , '>=', date('Y-m-d'));
+        $isSponsor = $user->doctor()->with(
+            ['sponsorships' => function ($item) {
+                return $item->where('end_date', '>=', date('Y-m-d'));
             }]
         )->first();
         if (count($isSponsor->sponsorships) === 0){
             $data=$request->all();
             return view('doctor.form', compact('data'));
         }
-        return redirect()->route('doctor.dashboard');
+        return redirect()->route('doctor.dashboard')->with('problem', 'You are already sponsored!!');;
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $request->validate([
             'id_sponsor' => 'exists:sponsorships,id'
         ]);
 
         $user = auth()->user();
 
-        $isSponsor=$user->doctor()->with(
-            ['sponsorships' => function($item){
-                return $item->where('end_date' , '>=', date('Y-m-d'));
+        $isSponsor = $user->doctor()->with(
+            ['sponsorships' => function ($item) {
+                return $item->where('end_date', '>=', date('Y-m-d'));
             }]
         )->first();
+
         if (count($isSponsor->sponsorships) === 0){
             $data=$request->all();
             $newSponsor=$user->doctor;
@@ -49,6 +52,6 @@ class PaymentController extends Controller
             $newSponsor->sponsorships()->attach($data['id_sponsor'], ['end_date' => $date]);
         }
 
-        return redirect()->route('doctor.dashboard');
+        return redirect()->route('doctor.dashboard')->with('message', 'Payment done, now you are sponsored!!');;
     }
 }
