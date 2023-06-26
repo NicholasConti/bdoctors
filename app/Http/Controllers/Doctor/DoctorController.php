@@ -70,7 +70,15 @@ class DoctorController extends Controller
         }
         $spec=Specialization::all();
         $sponsor=Sponsorship::all();
-        return view('doctor.dashboard', compact('user','spec','sponsor'));
+
+        $isSponsor=$user->doctor()->with(
+            ['sponsorships' => function($item){
+                return $item->where('end_date' , '>=', date('Y-m-d'));
+            }]
+        )->first();
+        if (count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
+        else $isSponsor=null;
+        return view('doctor.dashboard', compact('user','spec','sponsor','isSponsor'));
     }
 
     /**
@@ -136,7 +144,14 @@ class DoctorController extends Controller
 
         $user = $doc->user;
         $sponsor=Sponsorship::all();
-        return view('doctor.dashboard', compact('user','sponsor'));
+        $isSponsor=$user->doctor()->with(
+            ['sponsorships' => function($item){
+                return $item->where('end_date' , '>=', date('Y-m-d'));
+            }]
+        )->first();
+        if (count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
+        else $isSponsor=null;
+        return view('doctor.dashboard', compact('user','sponsor','isSponsor'));
     }
 
     /**
