@@ -76,7 +76,7 @@ class DoctorController extends Controller
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
         )->first();
-        if (count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
+        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
         else $isSponsor=null;
         return view('doctor.dashboard', compact('user','spec','sponsor','isSponsor'));
     }
@@ -149,7 +149,7 @@ class DoctorController extends Controller
                 return $item->where('end_date' , '>=', date('Y-m-d'));
             }]
         )->first();
-        if (count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
+        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];
         else $isSponsor=null;
         return view('doctor.dashboard', compact('user','sponsor','isSponsor'));
     }

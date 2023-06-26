@@ -87,20 +87,20 @@
                                 {{-- MESSAGES --}}
                                 <div>
                                     @forelse ($user->doctor->messages as $key=>$item)
-                                        <div class="bg_color_light  m-2 py-1">
+                                        <div class="bg_color_light  m-2 py-2">
                                             <div class="m-1">
                                                 <div class="badge text-bg-success text-wrap m-1">
-                                                    <h5>Message from: {{ $item->email }}</h5>
+                                                    <h5 class="text-light pt-2">Message from: {{ $item->email }}</h5>
                                                 </div>
-                                                <div class="px-1">
+                                                <div class="px-1 py-1">
                                                     <h6>{{ $item->name }}</h6>
                                                     <h6>{{ $key + 1 }} - {{ $item->text_message }}</h6>
                                                 </div>
 
                                             </div>
-                                            <div class="actions text-center">
-                                                <a class="fw-bold bg-info text-light" href="#">Reply</a>
-                                                <a class="fw-bold bg-danger text-light" href="#">Delete</a>
+                                            <div class="actions text-center py-2">
+                                                <a class="fw-bold bg-info text-light px-3 py-1 rounded me-2" href="#">Reply</a>
+                                                <a class="fw-bold bg-danger text-light px-3 py-1 rounded" href="#">Delete</a>
                                             </div>
                                         </div>
                                     @empty
