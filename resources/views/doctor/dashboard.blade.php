@@ -8,6 +8,7 @@
             <h2 class="fs-4 text-secondary text-center my-4 text-light">
                 {{ __('My Dashboard') }}
             </h2>
+            @include('partials.message')
             {{-- USER-INFO --}}
             @if ($user->doctor)
                 <div class="profile-img d-flex align-items-center my-4 text-light border-bottom border-primary pb-3">
