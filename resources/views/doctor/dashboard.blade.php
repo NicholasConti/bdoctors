@@ -80,8 +80,8 @@
                         {{-- Offcanvas_Messages --}}
                         <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true"
                             data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Messages received</h5>
+                            <div class="offcanvas-header d-flex justify-content-center">
+                                <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Messages received</h3>
                             </div>
                             <div class="offcanvas-body">
                                 {{-- MESSAGES --}}
@@ -99,12 +99,12 @@
 
                                             </div>
                                             <div class="actions text-center">
-                                                <a class="fs-4 color_link" href="#">Cancel</a>
-                                                <a class="fs-4 color_link" href="#">Reply</a>
+                                                <a class="fw-bold bg-info text-light" href="#">Reply</a>
+                                                <a class="fw-bold bg-danger text-light" href="#">Delete</a>
                                             </div>
                                         </div>
                                     @empty
-                                        <span class="list-group-item">Nessun messaggio!</span>
+                                        <span class="list-group-item">No messages yet!</span>
                                     @endforelse
                                 </div>
                             </div>
@@ -114,8 +114,8 @@
                         {{-- Offcanvas_Votes&reviews --}}
                         <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true"
                             data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Your Votes and Reviews</h5>
+                            <div class="offcanvas-header d-flex justify-content-center">
+                                <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Your Votes and Reviews</h3>
                             </div>
                             <div class="offcanvas-body">
                                 {{-- VOTES --}}
@@ -128,7 +128,7 @@
                                         $mediaVoto = $mediaVoto / count($user->doctor->votes);
                                     } ?>
                                     <div class="d-inline-block">
-                                        <h5>Avg doctor vote:{{ $mediaVoto }}</h5>
+                                        <h5>Avg doctor vote: {{ $mediaVoto }}</h5>
                                     </div>
                                 </div>
                                 {{-- REVIEWS --}}
@@ -137,14 +137,14 @@
                                     @forelse ($user->doctor->reviews as $key=>$item)
                                         <div class="py-2 m-2 bg_color_light">
                                             <div class="badge text-bg-success text-wrap m-1">
-                                                <h5>Review recived by: {{ $item->name }}</h5>
+                                                <h5 class="text-light pt-2">From: {{ $item->name }}</h5>
                                             </div>
                                             <div class="py-2 m-1">
                                                 <h6>{{ $key + 1 }} - {{ $item->text_review }}</h6>
                                             </div>
                                             <div class="actions text-center">
-                                                <a class="fs-4 color_link" href="#">Cancel</a>
-                                                <a class="fs-4 color_link" href="#">Reply</a>
+                                                <a class="fw-bold bg-info text-light rounded px-3 py-1 me-2" href="#">Reply</a>
+                                                <a class="fw-bold bg-danger text-light rounded px-3 py-1" href="#">Delete</a>
                                             </div>
                                         </div>
                                     @empty
@@ -155,17 +155,6 @@
                         </div>
 
                         {{-- Offcanvas_Votes&reviews --}}
-
-
-
-
-
-
-
-
-
-
-
                         {{-- Offcanvas_Sponsorship --}}
 
                         <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true"
@@ -237,7 +226,7 @@
                                                         </div>
                                                     @endforeach
                                                 </div>
-                                                <div class="d-flex justify-content-center  m-3">
+                                                <div class="d-flex justify-content-center mt-5">
                                                     <input class="btn_color" type="submit" value="Procedi al pagamento">
                                                 </div>
                                             </div>

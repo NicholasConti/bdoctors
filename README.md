@@ -23,13 +23,17 @@ Una piattaforma specializzata nella prenotazione online di visite mediche per re
 # Roadmap
 ## Week 1
 
-- Implementazione migration e seeder e impostazione CRUD
-- Registrazione utente
-- Creazione e modifica profilo
-- Gestione CV
+- Implementazione migration e seeder e impostazione CRUD.
+- Registrazione utente.
+- Creazione e modifica profilo.
+- Gestione CV.
 
 ## Week 2
 
-- Completare le CRUD con le validazioni ed i controlli annessi ed impostare la ricerca
-- Pagina di ricerca avanzata con filtri
-- Visualizzazione del profilo scelto
+- Completare le CRUD con le validazioni ed i controlli annessi ed impostare la ricerca.
+- Pagina di ricerca avanzata con filtri.
+- Visualizzazione del profilo scelto.
+
+## Week 3
+
+- Implementazione delle sponsorizzazioni con pagamento.

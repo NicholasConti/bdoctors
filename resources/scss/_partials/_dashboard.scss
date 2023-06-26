@@ -26,36 +26,36 @@ $body-text: 'Poppins', sans-serif;
 // }//body
 
 section {
-  
-  background: #ecf0ff; 
+
+  background: #ecf0ff;
   clear: both;
   // width: $msg-width;
   margin: 160px auto;
   overflow: hidden;
   border-radius: 10px;
   //box-shadow: 0px 60px 130px 15px $link-color; //colore sfumato
-  
+
   article {
-    
+
     padding: 25px 50px 15px;
-    
+
     > span {
-      
+
       color: $color-gray;
       display: block;
       padding: 10px 0;
-      
+
       a {
-      
+
         color: $link-color;
         text-decoration: none;
-    
+
       }//a
-  
+
     }//span
-  
+
   }//article
- 
+
   .actions {
     a{
       border: 1px solid black;
@@ -71,22 +71,22 @@ section {
       }
       transition: all 0.5s ease-in-out;
       width: 50%;
-      
+
       &:first-child{
-        
+
         float: left;
         border-right: 2px solid $color-offWhite;
-     
+
       }//&:first-child
-  
+
       // &:last-child {
-        
+
       //   float: right;
-      
+
       // }//&:last-child
-      
+
       // &:after {
-        
+
       //   @include transition(left 0.5s ease-in-out );
       //   background-color: darken($color-pale, 20%);
       //   content: "";
@@ -96,19 +96,19 @@ section {
       //   top: 0;
       //   width: 100%;
       //   z-index: 1;
-        
+
       // }//&:after
-  
+
       &:hover {
-        
+
         background-color: $link-color;
-      
+
       }//&:hover
-    
+
     }//a
-  
+
   }//.actions
-  
+
 }//section
 
 .offcanvas_box{
@@ -158,12 +158,12 @@ section {
     color: #697e91;
     max-width: 300px;
   }
-  
+
   .plan strong {
     font-weight: 600;
     color: #425275;
   }
-  
+
   .plan .inner {
     align-items: center;
     padding: 20px;
@@ -172,7 +172,7 @@ section {
     border-radius: 12px;
     position: relative;
   }
-  
+
   .plan .pricing {
     position: absolute;
     top: 0;
@@ -186,42 +186,42 @@ section {
     font-weight: 600;
     color: #425475;
   }
-  
+
   .plan .pricing small {
     color: #707a91;
     font-size: 0.75em;
     margin-left: 0.25em;
   }
-  
+
   .plan .title {
     font-weight: 600;
     font-size: 1.25rem;
     color: #425675;
   }
-  
+
   .plan .title + * {
     margin-top: 0.75rem;
   }
-  
+
   .plan .info + * {
     margin-top: 1rem;
   }
-  
+
   .plan .features {
     display: flex;
     flex-direction: column;
   }
-  
+
   .plan .features li {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
-  
+
   .plan .features li + * {
     margin-top: 0.75rem;
   }
-  
+
   .plan .features .icon {
     background-color: #1FCAC5;
     display: inline-flex;
@@ -232,23 +232,23 @@ section {
     width: 20px;
     height: 20px;
   }
-  
+
   .plan .features .icon svg {
     width: 14px;
     height: 14px;
   }
-  
+
   .plan .features + * {
     margin-top: 1.25rem;
   }
-  
+
   .plan .action {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: end;
   }
-  
+
   .plan .button {
     background-color: #6558d3;
     border-radius: 6px;
@@ -262,17 +262,13 @@ section {
     padding: 0.625em 0.75em;
     text-decoration: none;
   }
-  
+
   .plan .button:hover, .plan .button:focus {
     background-color: #4133B7;
-  } 
+  }
 
 
   .bg_color_light {
     background-color: #ecf0ff;
     border-radius: 10px;
-  }
-
-  .color_link{
-    color: #1fcac5;
   }
