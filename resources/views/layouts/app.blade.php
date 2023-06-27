@@ -164,9 +164,8 @@
             </div>
             <!-- Logo+Info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto ">
-                <div class="py-3 mt-2">
-                    <img class="logo img-fluid"
-                        src="{{ Vite::asset('../../../storage/app/public/uploads/logo_fb2.jpg') }}" alt="bdoctors">
+                <div class="py-3 my-2">
+                    <img class="logo img-fluid" src="{{ Vite::asset('../../../storage/app/public/uploads/logo_fb2.jpg') }}" alt="bdoctors">
                 </div>
                 <div class="d-flex justify-content-center">
                     <ul>
