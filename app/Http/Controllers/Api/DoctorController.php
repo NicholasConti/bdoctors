@@ -50,7 +50,7 @@ class DoctorController extends Controller
     // QUERY FOR DOCTOR DETAIL
     public function show(int $id)
     {
-        $doctor = Doctor::where('id', $id)->with('specializations', 'votes', 'user')->with(
+        $doctor = Doctor::where('id', $id)->with('specializations', 'votes', 'user','reviews')->with(
             ['sponsorships' => function($item){
                 return $item->where('end_date' , '>=', date('Y-m-d H:i:s'));
             }]
