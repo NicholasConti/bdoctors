@@ -39,7 +39,11 @@ class DoctorController extends Controller
 
     // QUERY FOR SPONSORSHIP ACTIVE DOCTORS
     public function sponsor(){
-        $doctors = Doctor::with('user','specializations')->withCount('reviews')->withAvg('votes', 'vote')->join('doctor_sponsorship as sponsor', 'sponsor.doctor_id', '=', 'doctors.id')->where('sponsor.end_date', '>=', date('Y-m-d H:i:s'))->get();
+        $doctors = Doctor::with('user','specializations')->withCount('reviews')->withAvg('votes', 'vote')->join('doctor_sponsorship as sponsor', 'sponsor.doctor_id', '=', 'doctors.id')->where('sponsor.end_date', '>=', date('Y-m-d H:i:s'))->with(
+            ['sponsorships' => function($item){
+                return $item->where('end_date' , '>=', date('Y-m-d H:i:s'));
+            }]
+        )->get();
 
         return response()->json([
             'success' => true,
