@@ -1,14 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="dropin-container"></div>
+
+<div class="d-flex justify-content-center">
+    <div class="" style="height: 500px">
+        <div id="dropin-container"></div>
     <button id="submit-button" class="button button--small button--green">Purchase</button>
 
     <form id="form" class="d-none" action="{{ route('doctor.payment.confirmed') }}" method="POST">
         @csrf
         <input type="hidden" name="id_sponsor" value="{{ $data['package'] }}">
-        <button type="submit" id="submit" class="btn btn-success mt-2">Conferma il pagamento</button>
+        <button type="submit" id="submit" class="btn btn-success mt-2">Proceed with payment</button>
     </form>
+    </div>
+    
+</div>
+    
 
     <script src="https://js.braintreegateway.com/web/dropin/1.38.1/js/dropin.js"></script>
     <script>
