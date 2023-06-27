@@ -195,8 +195,7 @@
                                                                 <p class="title"><input type="radio" name="package"
                                                                         value=" {{ $sponsorship->id }}">
                                                                     {{ $sponsorship->name }}</p>
-                                                                <p class="info">This plan is for those who have a team
-                                                                    already and running a large business.</p>
+                                                                <p class="info">This plan is valid for {{$sponsorship->duration}} hrs and you could add more sponsorship as you wish</p>
                                                                 <ul class="features">
                                                                     <li>
                                                                         <span class="icon">
