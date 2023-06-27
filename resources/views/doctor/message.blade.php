@@ -10,7 +10,7 @@
                 <div class="col-12">
                     @if ($key % 2 == 0)
                         <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">{{ $item->name }} {{ $item->surname }}</h4>
+                            <h4 class="alert-heading mb-4">Message From: {{ $item->name }} {{ $item->surname }}</h4>
                             <p>
                                 {{ $item->text_message }}
                             </p>
@@ -21,7 +21,7 @@
                         </div>
                     @else
                         <div class="alert alert-warning" role="alert">
-                            <h4 class="alert-heading">{{ $item->name }} {{ $item->surname }}</h4>
+                            <h4 class="alert-heading mb-4">Message from: {{ $item->name }} {{ $item->surname }}</h4>
                             <p>
                                 {{ $item->text_message }}
                             </p>

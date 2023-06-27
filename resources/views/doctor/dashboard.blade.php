@@ -88,10 +88,10 @@
                                 {{-- MESSAGES --}}
                                 <div>
                                     @forelse ($user->doctor->messages as $key=>$item)
-                                        <div class="bg_color_light  m-2 py-2">
+                                        <div class="bg_color_light m-2 py-2">
                                             <div class="m-1">
-                                                <div class="badge text-bg-success text-wrap m-1">
-                                                    <h5 class="text-light pt-2">Message from: {{ $item->email }}</h5>
+                                                <div class="text-wrap m-1 mb-3" style="width: 500px">
+                                                    <h5 class="bg-info rounded text-center text-light pt-2">Message from: {{ $item->email }}</h5>
                                                 </div>
                                                 <div class="px-1 py-1">
                                                     <h6>{{ $item->name }}</h6>
@@ -139,8 +139,8 @@
                                 <div class="m-2 py-1">
                                     @forelse ($user->doctor->reviews as $key=>$item)
                                         <div class="py-2 m-2 bg_color_light">
-                                            <div class="badge text-bg-success text-wrap m-1">
-                                                <h5 class="text-light pt-2">From: {{ $item->name }}</h5>
+                                            <div class="text-wrap m-1 mb-3" style="width: 350px">
+                                                <h5 class="bg-info rounded text-center text-light pt-2">From: {{ $item->name }}</h5>
                                             </div>
                                             <div class="py-2 m-1">
                                                 <h6>{{ $key + 1 }} - {{ $item->text_review }}</h6>
