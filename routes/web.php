@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashBoardController;
+use App\Http\Controllers\Doctor\ChartJsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Doctor\DoctorController;
 use App\Http\Controllers\Doctor\MessageController;
@@ -24,11 +25,7 @@ Route::get('/', function () {
 
 Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(function () {
 
-
-    Route::get('/chartjs', function () {
-        return view('doctor.chartjs');
-    });
-
+    Route::get('/chartjs',[ChartJsController::class,'index']);
 
     Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
