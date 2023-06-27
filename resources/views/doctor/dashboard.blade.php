@@ -100,8 +100,10 @@
 
                                             </div>
                                             <div class="actions text-center py-2">
-                                                <a class="fw-bold bg-info text-light px-3 py-1 rounded me-2" href="#">Reply</a>
-                                                <a class="fw-bold bg-danger text-light px-3 py-1 rounded" href="#">Delete</a>
+                                                <a class="fw-bold bg-info text-light px-3 py-1 rounded me-2"
+                                                    href="#">Reply</a>
+                                                <a class="fw-bold bg-danger text-light px-3 py-1 rounded"
+                                                    href="#">Delete</a>
                                             </div>
                                         </div>
                                     @empty
@@ -144,8 +146,10 @@
                                                 <h6>{{ $key + 1 }} - {{ $item->text_review }}</h6>
                                             </div>
                                             <div class="actions text-center">
-                                                <a class="fw-bold bg-info text-light rounded px-3 py-1 me-2" href="#">Reply</a>
-                                                <a class="fw-bold bg-danger text-light rounded px-3 py-1" href="#">Delete</a>
+                                                <a class="fw-bold bg-info text-light rounded px-3 py-1 me-2"
+                                                    href="#">Reply</a>
+                                                <a class="fw-bold bg-danger text-light rounded px-3 py-1"
+                                                    href="#">Delete</a>
                                             </div>
                                         </div>
                                     @empty
@@ -162,7 +166,8 @@
                             data-bs-backdrop="false" id="offcanvasSponsorship" aria-labelledby="offcanvasScrollingLabel">
                             <div class="d-flex justify-content-center m-3">
                                 @if (!$isSponsor)
-                                    <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto</h3>
+                                    <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Seleziona il tuo pacchetto
+                                    </h3>
                                 @endif
                             </div>
                             <div class="offcanvas-body">
@@ -205,8 +210,8 @@
                                                                                 </path>
                                                                             </svg>
                                                                         </span>
-                                                                        <span
-                                                                            class="color_sponsor_text">Duration<strong> {{ $sponsorship->duration }}hrs</strong></span>
+                                                                        <span class="color_sponsor_text">Duration<strong>
+                                                                                {{ $sponsorship->duration }}hrs</strong></span>
                                                                     </li>
                                                                     <li>
                                                                         <span class="icon">
@@ -221,7 +226,8 @@
                                                                             </svg>
                                                                         </span>
                                                                         <span class="color_sponsor_text">Price
-                                                                            <strong> {{ $sponsorship->price }}$</strong></span>
+                                                                            <strong>
+                                                                                {{ $sponsorship->price }}$</strong></span>
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -270,36 +276,23 @@
                 @endif
                 <form method="POST" action="{{ route('doctor.doctor.store') }}" enctype="multipart/form-data">
                     @csrf
+                    <label for="telephone" class="form-label">Telephone</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="telephone" placeholder="Telephone"
-                            aria-label="Telephone" aria-describedby="basic-addon1" value="{{ old('telephone') }}">
+                        <input minlength="2" maxlength="30" type="text" class="form-control" name="telephone"
+                            placeholder="Telephone" aria-label="Telephone" aria-describedby="basic-addon1"
+                            value="{{ old('telephone') }}">
                     </div>
+
+                    <label for="performance" class="form-label">Performance</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="performance" placeholder="Performance"
-                            aria-label="Performance" aria-describedby="basic-addon1" value="{{ old('performance') }}">
+                        <input maxlength="250" type="text" class="form-control" name="performance"
+                            placeholder="Performance" aria-label="Performance" aria-describedby="basic-addon1"
+                            value="{{ old('performance') }}">
                     </div>
+
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control" id="description" rows="3" name="description">{{ old('description') }}</textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cv" class="form-label">Curriculum</label>
-                        <input class="form-control" type="file" id="cv" name="cv">
-                        <!-- profile cv preview -->
-                        <div class="preview pt-2">
-                            <object id="file-cv-preview" type="application/pdf" width="20%"
-                                class="border border-0 rounded"></object>
-                        </div>
-                        <!-- /profile cv preview -->
-                    </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Profile image</label>
-                        <input class="form-control" type="file" id="image" name="image">
-                        <!-- profile image preview -->
-                        <div class="preview pt-2">
-                            <img id="file-image-preview" width="20%" class="rounded">
-                        </div>
-                        <!-- /profile image preview -->
                     </div>
 
                     @if ($errors->any())
@@ -316,6 +309,7 @@
                         </ul>
                     @else
                         <ul class="list-group mb-3">
+                            <label for="description" class="form-label">Specializations</label>
                             @foreach ($spec as $item)
                                 <li class="list-group-item">
                                     <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
@@ -326,7 +320,36 @@
                             @endforeach
                         </ul>
                     @endif
-                    <button type="submit" class="btn btn-primary mb-3">Save</button>
+
+                    <div class="d-flex my-5 pt-3 border-top" style="margin: 0 100px">
+                        <div class="mb-3 w-100 me-5 border-end pe-5" style="margin-left: 100px">
+                            <label for="cv" class="form-label">Curriculum</label>
+                            <input class="form-control" type="file" id="cv" name="cv"
+                                style="width: 400px">
+                            <!-- profile cv preview -->
+                            <div class="preview pt-2 text-center">
+                                {{-- <object data="{{ $doc->cv }}" type="application/pdf" width="20%" class="border border-dark rounded"></object> --}}
+                            </div>
+                            <!-- /profile cv preview -->
+                        </div>
+                        <div>
+                            <div class="w-50">
+                                <label for="image" class="form-label">Profile image</label>
+                                <input class="form-control" type="file" id="image" name="image"
+                                    style="width: 400px">
+                            </div>
+
+                            <!-- profile image preview -->
+                            <div class="preview mt-2 ms-5 ps-5">
+                                <img id="file-image-preview" class="border border-dark rounded" width="40%">
+                            </div>
+                            <!-- /profile image preview -->
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <button type="submit" class="btn btn-primary mb-3">Save</button>
+                    </div>
                 </form>
             @endif
         </div>

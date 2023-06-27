@@ -68,17 +68,7 @@ class DoctorController extends Controller
             $user->doctor_id = $doctor->id;
             $user->update();
         }
-        $spec = Specialization::all();
-        $sponsor = Sponsorship::all();
-
-        $isSponsor = $user->doctor()->with(
-            ['sponsorships' => function ($item) {
-                return $item->where('end_date', '>=', date('Y-m-d'));
-            }]
-        )->first();
-        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor = $isSponsor->sponsorships[0];
-        else $isSponsor = null;
-        return view('doctor.dashboard', compact('user', 'spec', 'sponsor', 'isSponsor'));
+        return redirect()->route('doctor.dashboard')->with('message', "Profile created succesfully!!");
     }
 
     /**

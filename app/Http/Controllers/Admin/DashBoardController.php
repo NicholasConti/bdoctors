@@ -16,7 +16,7 @@ class DashBoardController extends Controller
         $sponsor=Sponsorship::all();
         $isSponsor=$user->doctor()->with(
             ['sponsorships' => function($item){
-                return $item->where('end_date' , '>=', date('Y-m-d'));
+                return $item->where('end_date' , '>=', date('Y-m-d H:i:s'));
             }]
         )->first();
         if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor=$isSponsor->sponsorships[0];

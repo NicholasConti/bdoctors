@@ -7,7 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="{{ Vite::asset('../../../storage/app/public/uploads/favicon2.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ Vite::asset('../../../storage/app/public/uploads/favicon2.ico') }}"
+        type="image/x-icon">
     <title>BDoctors{{-- {{ config('app.name', 'Laravel') }} --}}</title>
 
 
@@ -15,8 +16,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -50,20 +52,21 @@
                     <ul class="navbar-nav me-auto">
                         {{-- mostra i due link se è un dottore autenticato --}}
                         @if (!auth()->user() || !auth()->user()->doctor)
-                            <li class="nav-item d-none">
+                            {{-- <li class="nav-item d-none">
                                 <a class="nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
                             </li>
                             <li class="nav-item d-none">
                                 <a class="nav-link" href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
-                            </li>
+                            </li> --}}
                         @else()
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
+                                <a class="nav-link" href="http://localhost:5174/">{{ __('Home') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
+                                <a class="nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
                             </li>
                         @endif
                     </ul>
@@ -162,7 +165,8 @@
             <!-- Logo+Info -->
             <div class="col-4 col-md-6 col-lg-2 col-xl-3 mx-auto ">
                 <div class="py-3 mt-2">
-                    <img class="logo img-fluid" src="{{ Vite::asset('../../../storage/app/public/uploads/logo_fb2.jpg') }}" alt="bdoctors">
+                    <img class="logo img-fluid"
+                        src="{{ Vite::asset('../../../storage/app/public/uploads/logo_fb2.jpg') }}" alt="bdoctors">
                 </div>
                 <div class="d-flex justify-content-center">
                     <ul>
