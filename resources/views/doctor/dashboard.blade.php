@@ -177,6 +177,7 @@
                                     @if ($isSponsor)
                                         <div class="container-fluid text-center">
                                             <h4>Hai già una sponsorship attiva!</h4>
+                                            <p>La tua sponsorship scade il: <span class="fw-bold">{{ $end_date }}</span></p>
                                         </div>
                                     @else
                                         <form id="package-form" action="{{ route('doctor.payment') }}" method="POST">
@@ -313,8 +314,7 @@
                                 <li class="list-group-item">
                                     <input class="form-check-input me-1" type="checkbox" value="{{ $item->id }}"
                                         id="{{ $item->name }}" name="specialization[]">
-                                    <label class="form-check-label stretched-link"
-                                        for="{{ $item->name }}">{{ $item->name }}</label>
+                                    <label class="form-check-label stretched-link" for="{{ $item->name }}">{{ $item->name }}</label>
                                 </li>
                             @endforeach
                         </ul>
@@ -323,8 +323,7 @@
                     <div class="d-flex my-5 pt-3 border-top" style="margin: 0 100px">
                         <div class="mb-3 w-100 me-5 border-end pe-5" style="margin-left: 100px">
                             <label for="cv" class="form-label">Curriculum</label>
-                            <input class="form-control" type="file" id="cv" name="cv"
-                                style="width: 400px">
+                            <input class="form-control" type="file" id="cv" name="cv" style="width: 400px">
                             <!-- profile cv preview -->
                             <div class="preview pt-2 text-center">
                                 {{-- <object data="{{ $doc->cv }}" type="application/pdf" width="20%" class="border border-dark rounded"></object> --}}
