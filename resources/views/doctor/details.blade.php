@@ -69,8 +69,8 @@
                 </ul>
                 @endif
 
-                <div class="d-flex my-5 pt-3 border-top flex-column" style="margin: 0 100px">
-                    <div class="mb-3 w-100 me-5 pe-5">
+                <div class="d-flex my-5 pt-3 border-top">
+                    <div class="mb-5 col-6">
                         <label for="cv" class="form-label">Curriculum</label>
                         {{-- @if ($doc->cv)
                         <span class="badge rounded-pill text-bg-info">File already updated</span>
@@ -85,15 +85,15 @@
                         </div>
                         <!-- /profile cv preview -->
                     </div>
-                    <div>
-                        <div class="w-50">
-                            <label for="image" class="form-label">Profile image</label>
-                            <input class="form-control" type="file" id="image" name="image" style="width: 400px">
+                    <div class="col-6 border-start text-center">
+                        <div class="d-flex flex-column">
+                            <label for="image" class="form-label pe-5">Profile image</label>
+                            <input class="form-control align-self-end" type="file" id="image" name="image" style="width: 400px">
                         </div>
 
                         <!-- profile image preview -->
                         <div class="preview mt-2">
-                            <img id="file-image-preview" class="border border-dark rounded" width="40%" @if($doc->image) src="{{ $doc->image }}"  alt="{{ $doc->name }}" @endif>
+                            <img id="file-image-preview" class="border border-dark rounded ms-5" width="30%" @if($doc->image) src="{{ $doc->image }}"  alt="{{ $doc->name }}" @endif>
                         </div>
                         <!-- /profile image preview -->
                     </div>
