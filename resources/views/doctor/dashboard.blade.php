@@ -324,8 +324,7 @@
                     <div class="d-flex my-5 pt-3 border-top" style="margin: 0 100px">
                         <div class="mb-3 w-100 me-5 border-end pe-5" style="margin-left: 100px">
                             <label for="cv" class="form-label">Curriculum</label>
-                            <input class="form-control" type="file" id="cv" name="cv"
-                                style="width: 400px">
+                            <input class="form-control" type="file" id="cv" name="cv" style="width: 400px">
                             <!-- profile cv preview -->
                             <div class="preview pt-2 text-center">
                                 {{-- <object data="{{ $doc->cv }}" type="application/pdf" width="20%" class="border border-dark rounded"></object> --}}
@@ -335,8 +334,7 @@
                         <div>
                             <div class="w-50">
                                 <label for="image" class="form-label">Profile image</label>
-                                <input class="form-control" type="file" id="image" name="image"
-                                    style="width: 400px">
+                                <input class="form-control" type="file" id="image" name="image" style="width: 400px">
                             </div>
 
                             <!-- profile image preview -->
