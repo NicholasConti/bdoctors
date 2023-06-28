@@ -106,23 +106,27 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4 row mb-0">
+                            <div id="modal_error" class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     {{-- funzione per controllare le password --}}
                                     <script>
                                         function passwordConfirmation() {
                                             let password = document.getElementById("password").value;
                                             let confirmPassword = document.getElementById("password-confirm").value;
-
+                                            /* let modal = document.getElementById("modal_error");
+                                            let preModal = modal; */
                                             if (password !== confirmPassword) {
                                                 alert("Please make sure your passwords match.");
-                                                    return false;
+                                                /* modal.innerHTML += '<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="staticBackdropLabel">Wrong Password</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">Please make sure your passwords match.</div><div class="modal-footer"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button></div></div></div></div>'; */
+
+                                                return false;
                                             } else {
-                                                    return true;
+                                                /* modal.innerHTML = ${preModal}; */
+                                                return true;
                                             }
                                         }
                                     </script>
-                                    <button type="submit" class="btn btn-primary" onclick="return passwordConfirmation()">
+                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary" onclick="return passwordConfirmation()">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
