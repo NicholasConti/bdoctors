@@ -334,8 +334,7 @@
                         <div>
                             <div class="w-50">
                                 <label for="image" class="form-label">Profile image</label>
-                                <input class="form-control" type="file" id="image" name="image"
-                                    style="width: 400px">
+                                <input class="form-control" type="file" id="image" name="image" style="width: 400px">
                             </div>
 
                             <!-- profile image preview -->
