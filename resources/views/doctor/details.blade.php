@@ -69,17 +69,17 @@
                 </ul>
                 @endif
 
-                <div class="d-flex my-5 pt-3 border-top" style="margin: 0 100px">
-                    <div class="mb-3 w-100 me-5 border-end pe-5" style="margin-left: 100px">
+                <div class="d-flex my-5 pt-3 border-top flex-column" style="margin: 0 100px">
+                    <div class="mb-3 w-100 me-5 pe-5">
                         <label for="cv" class="form-label">Curriculum</label>
-                        @if ($doc->cv)
+                        {{-- @if ($doc->cv)
                         <span class="badge rounded-pill text-bg-info">File already updated</span>
-                        @endif
+                        @endif --}}
                         <input class="form-control" type="file" id="cv" name="cv" style="width: 400px">
                         <!-- profile cv preview -->
-                        <div class="preview pt-2 text-center">
+                        <div class="preview pt-2">
                             @if ($doc->cv)
-                            <a href="{{$doc->cv}}" target="_blank" class="badge rounded-pill text-bg-warning">Click to show</a>
+                            <a href="{{$doc->cv}}" target="_blank" class="badge rounded-pill text-bg-warning">File already updated: Click to show</a>
                             @endif
                             {{-- <object data="{{ $doc->cv }}" type="application/pdf" width="20%" class="border border-dark rounded"></object> --}}
                         </div>
@@ -92,7 +92,7 @@
                         </div>
 
                         <!-- profile image preview -->
-                        <div class="preview mt-2 ms-5 ps-5">
+                        <div class="preview mt-2">
                             <img id="file-image-preview" class="border border-dark rounded" width="40%" @if($doc->image) src="{{ $doc->image }}"  alt="{{ $doc->name }}" @endif>
                         </div>
                         <!-- /profile image preview -->
