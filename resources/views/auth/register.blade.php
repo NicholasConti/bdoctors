@@ -103,30 +103,15 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
+                                        <span class="invalid-feedback d-none" role="alert" id="alertMessage">
+                                            <strong>Please make sure your passwords match.</strong>
+                                        </span>
                                 </div>
                             </div>
 
                             <div id="modal_error" class="mb-4 row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    {{-- funzione per controllare le password --}}
-                                    <script>
-                                        function passwordConfirmation() {
-                                            let password = document.getElementById("password").value;
-                                            let confirmPassword = document.getElementById("password-confirm").value;
-                                            /* let modal = document.getElementById("modal_error");
-                                            let preModal = modal; */
-                                            if (password !== confirmPassword) {
-                                                alert("Please make sure your passwords match.");
-                                                /* modal.innerHTML += '<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> <div class="modal-dialog"> <div class="modal-content"><div class="modal-header"><h1 class="modal-title fs-5" id="staticBackdropLabel">Wrong Password</h1><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body">Please make sure your passwords match.</div><div class="modal-footer"><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button></div></div></div></div>'; */
-
-                                                return false;
-                                            } else {
-                                                /* modal.innerHTML = ${preModal}; */
-                                                return true;
-                                            }
-                                        }
-                                    </script>
-                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary" onclick="return passwordConfirmation()">
+                                    <button type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn btn-primary">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -137,4 +122,27 @@
             </div>
         </div>
     </div>
+    {{-- funzione per controllare le password --}}
+    <script>
+        const passwordConfirm = document.getElementById('password-confirm');
+        const password = document.getElementById('password');
+        const alertMessage = document.getElementById('alertMessage');
+        passwordConfirm.addEventListener("focusout", (event) => {
+        if (passwordConfirm.value.trim()!= password.value.trim()){
+            alertMessage.classList.remove('d-none');
+            alertMessage.classList.add('d-block');
+            //alert('ciao');
+        } 
+    });
+    passwordConfirm.addEventListener("keyup", (event) => {
+        if ((passwordConfirm.value.trim()!= password.value.trim()) &&( passwordConfirm.value.length == password.value.length)){
+            alertMessage.classList.remove('d-none');
+            alertMessage.classList.add('d-block');
+        }else{
+            alertMessage.classList.add('d-none');
+            alertMessage.classList.remove('d-block');
+        }
+    }); 
+    </script>
 @endsection
+ 
