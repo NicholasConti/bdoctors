@@ -177,6 +177,7 @@
                                     @if ($isSponsor)
                                         <div class="container-fluid text-center">
                                             <h4>Hai già una sponsorship attiva!</h4>
+                                            <p>La tua sponsorship scade il: <span class="fw-bold">{{ $end_date }}</span></p>
                                         </div>
                                     @else
                                         <form id="package-form" action="{{ route('doctor.payment') }}" method="POST">

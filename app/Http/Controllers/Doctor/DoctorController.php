@@ -91,8 +91,9 @@ class DoctorController extends Controller
     {
         $doc = Doctor::findOrFail($id);
         $spec = Specialization::all();
-
-        return view('doctor.details', compact('doc', 'spec'));
+        $user = auth()->user();
+        if ($doc->id === $user->doctor_id) return view('doctor.details', compact('doc', 'spec'));
+        return redirect()->route('doctor.dashboard')->with('problem', "Error");
     }
 
     /**
@@ -132,16 +133,6 @@ class DoctorController extends Controller
             $doc->specializations()->detach();
         }
 
-        $user = $doc->user;
-        $sponsor = Sponsorship::all();
-        $isSponsor = $user->doctor()->with(
-            ['sponsorships' => function ($item) {
-                return $item->where('end_date', '>=', date('Y-m-d'));
-            }]
-        )->first();
-        if ($isSponsor && count($isSponsor->sponsorships) > 0) $isSponsor = $isSponsor->sponsorships[0];
-        else $isSponsor = null;
-        //return view('doctor.dashboard', compact('user', 'sponsor', 'isSponsor'));
         return redirect()->route('doctor.dashboard')->with('edited', "Profile edited succesfully!!");
     }
 
