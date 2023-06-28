@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(function () {
 
-    Route::get('/chartjs',[ChartJsController::class,'index']);
+    Route::get('/statistics',[ChartJsController::class,'index'])->name('statistics');
 
     Route::get('/', [DashBoardController::class, 'index'])->name('dashboard');
 
@@ -37,7 +37,6 @@ Route::middleware('auth', 'verified')->prefix('doctor')->name('doctor.')->group(
 
 
     // Mostra il modulo di pagamento
-    //Route::get('/payment', [PaymentController::class, 'showPaymentForm'])->name('payment.form');
     Route::post('/payment', [PaymentController::class, 'create'])->name('payment');
     Route::post('/payment/confirmed', [PaymentController::class, 'store'])->name('payment.confirmed');
 

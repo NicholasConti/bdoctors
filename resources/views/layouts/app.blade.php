@@ -68,6 +68,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('doctor.statistics') }}">{{ __('Statistics') }}</a>
+                            </li>
                         @endif
                     </ul>
 
