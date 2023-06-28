@@ -5,8 +5,8 @@
     <div class="background_color">
 
         <div class="container">
-            <h2 class="fs-4 text-secondary my-4">
-                {{ __('My Profile') }}
+            <h2 class="fs-4 text-light my-4 text-center">
+                {{ __('Edit Profile') }}
             </h2>
 
             @if ($errors->any())
