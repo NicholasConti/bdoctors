@@ -49,7 +49,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav ms-auto me-auto gap-3 text-uppercase">
                         {{-- mostra i due link se è un dottore autenticato --}}
                         @if (!auth()->user() || !auth()->user()->doctor)
                             {{-- <li class="nav-item d-none">
@@ -66,7 +66,7 @@
                                 <a class="nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('doctor.message') }}">{{ __('My Message') }}</a>
+                                <a class="nav-link" href="{{ route('doctor.message') }}">{{ __('Messages') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('doctor.statistics') }}">{{ __('Statistics') }}</a>
