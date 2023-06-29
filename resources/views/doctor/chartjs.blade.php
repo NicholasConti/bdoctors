@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <script type="text/javascript" src="{{ URL::asset('js/mychart.js') }}"></script>
 

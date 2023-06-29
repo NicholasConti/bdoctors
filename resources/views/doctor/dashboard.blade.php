@@ -249,7 +249,7 @@
                         <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true"
                             data-bs-backdrop="false" id="offcanvasCV" aria-labelledby="offcanvasScrollingLabel">
                             <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">CV</h5>
+                                <h3 class="offcanvas-title mx-auto" id="offcanvasScrollingLabel">My Curriculum Vitae</h3>
                             </div>
                             <div class="offcanvas-body">
                                 {{-- CV --}}
