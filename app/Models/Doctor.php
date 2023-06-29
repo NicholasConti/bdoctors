@@ -54,6 +54,6 @@ class Doctor extends Model
 
     public function votes()
     {
-        return $this->belongsToMany(Vote::class);
+        return $this->belongsToMany(Vote::class)->withTimestamps();
     }
 }

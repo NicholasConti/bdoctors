@@ -7,6 +7,7 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Message;
+use App\Models\Vote;
 
 class ChartJsController extends Controller
 {
@@ -42,6 +43,8 @@ class ChartJsController extends Controller
             ->selectRaw('YEAR(created_at) as anno')
             ->groupBy('anno')
             ->get();
+
+        //Grafico per media voti per anno
 
         return view('doctor.chartjs', compact('reviewMese', 'reviewAnno', 'messageMese', 'messageAnno'));
     }
