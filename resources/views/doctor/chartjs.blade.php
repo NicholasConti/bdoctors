@@ -5,7 +5,7 @@
 
     {{-- Test per grafico dei trend --}}
 <div style="width: 600px; margin: auto;">
-    <h1>SONO CHARTJS</h1>
+    <h2 class="text-light text-center mb-5">{{ __('Statistic charts') }}</h2>
     <canvas id="myChart"></canvas>
 </div>
 
