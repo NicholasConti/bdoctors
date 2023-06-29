@@ -37,7 +37,7 @@ console.log(arrayProva);
 const data = {
     labels: labels,
     datasets: [{
-        label: 'My First dataset',
+        label: 'Reviews',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: arrayProva,
