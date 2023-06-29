@@ -18,12 +18,18 @@
 <div style="width: 600px; margin:auto;" class="mt-3">
     <canvas id="chartMY" class="bg-white"></canvas>
 </div>
+<div style="width: 600px; margin:auto;" class="mt-3">
+    <canvas id="chartVM" class="bg-white"></canvas>
+</div>
+<div style="width: 600px; margin:auto;" class="mt-3">
+    <canvas id="chartVY" class="bg-white"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
 
 // FUNCTION FOR STAT EACH MONTH
-    function getMonthsStats(dataMonths,months){
+    function getMonthsStats(dataMonths,months, typegraph='line'){
         let arrDataMonth = [];
         for (let i = 0; i<12; i++) arrDataMonth.push(0);
         //console.log(dataMonths);
@@ -35,7 +41,7 @@
         const data = {
             labels: months,
             datasets: [{
-                label: 'Reviews',
+                label: 'Data',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: arrDataMonth,
@@ -43,7 +49,7 @@
         };
         //genera nuovo grafico
         const config = {
-            type: 'line',
+            type: typegraph,
             data: data,
             options: {
                 responsive: true,
@@ -57,7 +63,7 @@
         return config;
     }
 // FUNCTION FOR STAT EACH YEAR
-    function getYearsStats(dataYears,years){
+    function getYearsStats(dataYears,years,typegraph='line'){
         let arrReviewsYear = [];
         for (let i = 0; i<years.length; i++) arrReviewsYear.push(0);
         dataYears.forEach(element => {
@@ -73,7 +79,7 @@
         const dataRY = {
             labels: years,
             datasets: [{
-                label: 'Years',
+                label: 'Data',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: arrReviewsYear,
@@ -81,7 +87,7 @@
         };
         //genera nuovo grafico
         const configRY = {
-            type: 'line',
+            type: typegraph,
             data: dataRY,
             options: {
                 responsive: true,
@@ -94,7 +100,6 @@
         };
         return configRY;
     }
-
 
     const labelsM = [
     'January',
@@ -142,6 +147,20 @@
     new Chart(
         document.getElementById('chartMY'),
         getYearsStats(messageYears,labelsY)
+    );
+
+    // STATS VOTES-MONTHS
+    const votesMonths = {{Js::from($votiMese)}};
+    new Chart(
+        document.getElementById('chartVM'),
+        getMonthsStats(votesMonths,labelsM,'bar')
+    );
+
+    // STATS VOTES-YEARS
+    const votesYears = {{Js::from($votiAnno)}};
+    new Chart(
+        document.getElementById('chartVY'),
+        getYearsStats(votesYears,labelsY,'bar')
     );
 </script>
 @endsection
