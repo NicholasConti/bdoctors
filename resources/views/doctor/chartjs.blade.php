@@ -12,6 +12,12 @@
 <div style="width: 600px; margin:auto;" class="mt-3">
     <canvas id="chartRY" class="bg-white"></canvas>
 </div>
+<div style="width: 600px; margin:auto;" class="mt-3">
+    <canvas id="chartMM" class="bg-white"></canvas>
+</div>
+<div style="width: 600px; margin:auto;" class="mt-3">
+    <canvas id="chartMY" class="bg-white"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
@@ -40,13 +46,13 @@
             type: 'line',
             data: data,
             options: {
-            responsive: true,
-            min: 0,
-            ticks: {
-            // forces step size to be 50 units
-            stepSize: 1
-        }
-    }
+                responsive: true,
+                min: 0,
+                ticks: {
+                    // forces step size to be 50 units
+                    stepSize: 1
+                }
+            }
         };
         return config;
     }
@@ -78,13 +84,13 @@
             type: 'line',
             data: dataRY,
             options: {
-            responsive: true,
-            min: 0,
-            ticks: {
-            // forces step size to be 50 units
-            stepSize: 1
-        }
-    }
+                responsive: true,
+                min: 0,
+                ticks: {
+                    // forces step size to be 50 units
+                    stepSize: 1
+                }
+            }
         };
         return configRY;
     }
@@ -122,6 +128,20 @@
     new Chart(
         document.getElementById('chartRY'),
         getYearsStats(reviewYears,labelsY)
+    );
+
+    // STATS MESSAGES-MONTHS
+    const messageMonths = {{Js::from($messageMese)}};
+    new Chart(
+        document.getElementById('chartMM'),
+        getMonthsStats(messageMonths,labelsM)
+    );
+
+    // STATS MESSAGE-YEARS
+    const messageYears = {{Js::from($messageAnno)}};
+    new Chart(
+        document.getElementById('chartMY'),
+        getYearsStats(messageYears,labelsY)
     );
 </script>
 @endsection
