@@ -2,12 +2,46 @@
 
 namespace App\Http\Controllers\Doctor;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Message;
 
 class ChartJsController extends Controller
 {
     public function index(){
-        return view('doctor.chartjs');
+        $user = auth()->user();
+        //Grafico per mese recensioni
+        $reviewMese=Review::where('doctor_id', $user->doctor_id)
+        ->whereYear('created_at', Carbon::now()->format('Y'))
+        ->selectRaw('count(id) as count')
+        ->selectRaw('MONTH(created_at) as mese')
+        ->groupBy('mese')
+        ->get();
+
+        //Grafico per anno recensioni
+        $reviewAnno=Review::where('doctor_id', $user->doctor_id)
+        ->selectRaw('count(id) as count')
+        ->selectRaw('YEAR(created_at) as anno')
+        ->groupBy('anno')
+        ->get();
+
+        //Grafico per mese messaggi
+        $messageMese=Message::where('doctor_id', $user->doctor_id)
+        ->whereYear('created_at', Carbon::now()->format('Y'))
+        ->selectRaw('count(id) as count')
+        ->selectRaw('MONTH(created_at) as mese')
+        ->groupBy('mese')
+        ->get();
+
+        //Grafico per anno messaggi
+        $messageAnno=Message::where('doctor_id', $user->doctor_id)
+        ->selectRaw('count(id) as count')
+        ->selectRaw('YEAR(created_at) as anno')
+        ->groupBy('anno')
+        ->get();
+
+        return view('doctor.chartjs',compact('reviewMese','reviewAnno','messageMese','messageAnno'));
     }
 }
