@@ -2,12 +2,11 @@
 
 @section('content')
 
+<h2 class="text-light text-center mb-5">{{ __('Statistic charts') }}</h2>
     {{-- Test per grafico dei trend --}}
 <div style="width: 600px; margin: auto;">
-    <h2 class="text-light text-center mb-5">{{ __('Statistic charts') }}</h2>
     <canvas id="myChart"></canvas>
 </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
