@@ -186,7 +186,7 @@
                                                                 <p class="title"><input type="radio" name="package"
                                                                         value=" {{ $sponsorship->id }}">
                                                                     {{ $sponsorship->name }}</p>
-                                                                <p class="info">This plan is valid for {{$sponsorship->duration}} hrs</p>
+                                                                <p class="info">This plan is valid for {{($sponsorship->duration)/24}} days</p>
                                                                 <ul class="features">
                                                                     <li>
                                                                         <span class="icon">
