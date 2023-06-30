@@ -2,28 +2,86 @@
 
 @section('content')
 
-<div class="container">
-    <h2 class="text-light mb-5">{{ __('Statistic charts') }}</h2>
+<div class="container ">
+    <h2 class="text-light text-center mb-3">{{ __('Statistic charts') }}</h2>
 </div>    
 {{-- Test per grafico dei trend --}}
-<div style="width: 600px; margin: auto;">
-    <canvas id="chartRM" class="bg-white"></canvas>
-</div>
-<div style="width: 600px; margin:auto;" class="mt-3">
-    <canvas id="chartRY" class="bg-white"></canvas>
-</div>
-<div style="width: 600px; margin:auto;" class="mt-3">
-    <canvas id="chartMM" class="bg-white"></canvas>
-</div>
-<div style="width: 600px; margin:auto;" class="mt-3">
-    <canvas id="chartMY" class="bg-white"></canvas>
-</div>
-<div style="width: 600px; margin:auto;" class="mt-3">
-    <canvas id="chartVM" class="bg-white"></canvas>
-</div>
-<div style="width: 600px; margin:auto;" class="mt-3">
-    <canvas id="chartVY" class="bg-white"></canvas>
-</div>
+
+
+    <div
+            class="d-flex gap-2 mb-5 d-none d-md-block col-md-12 container-sm text-center border-bottom border-primary pb-3">
+        <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling">
+        <span><i class="fa-solid fa-message pe-2"></i>Messages</span>
+        </button>
+        <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasVotes" aria-controls="offcanvasScrolling">
+        <span><i class="fa-solid fa-star-half-stroke pe-2"></i>Votes</span>
+        </button>
+        <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasReviews" aria-controls="offcanvasScrolling">
+        <span><i class="fa-solid fa-star-half-stroke pe-2"></i>Reviews</span>
+        </button>
+    </div>
+
+    <div class="offcanvas_box container mb-4">
+
+        {{-- Messages --}}
+        <div class="off_canvas offcanvas col-12 rounded show" tabindex="-1" data-bs-scroll="true"
+            data-bs-backdrop="false" id="offcanvasMessages" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header d-flex justify-content-center h-25">
+                <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Messages</h3>
+            </div>
+            <div class="offcanvas-body d-flex  align-items-center h-75">
+                <div style="width: 450px; margin:auto;" class="mt-3">
+                    <h5 class="text-center">per month</h5>
+                    <canvas id="chartMM" class="bg-white"></canvas>
+                </div>
+                
+                <div style="width: 450px; margin:auto;" class="mt-3">
+                    <h5 class="text-center">per year</h5>
+                    <canvas id="chartMY" class="bg-white"></canvas>
+                </div>
+            </div>
+        </div>
+
+        {{-- Votes --}}
+        <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true"
+            data-bs-backdrop="false" id="offcanvasVotes" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header d-flex justify-content-center h-25">
+                <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Votes</h3>
+            </div>
+            <div class="offcanvas-body d-flex  align-items-center h-75">
+                <div style="width: 450px; margin:auto;" class="mt-3">
+                    <h5 class="text-center">per month</h5>
+                    <canvas id="chartVM" class="bg-white"></canvas>
+                </div>
+                <div style="width: 450px; margin:auto;" class="mt-3">
+                    <h5 class="text-center">per year</h5>
+                    <canvas id="chartVY" class="bg-white"></canvas>
+                </div>
+            </div>
+        </div>
+
+        {{-- Reviews --}}
+        <div class="off_canvas offcanvas col-12 rounded" tabindex="-1" data-bs-scroll="true"
+            data-bs-backdrop="false" id="offcanvasReviews" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header d-flex justify-content-center h-25">
+                <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Reviews</h3>
+            </div>
+            <div class="offcanvas-body d-flex align-items-center h-75">
+                <div style="width: 450px; margin: auto;" class="mt-3">
+                    <h5 class="text-center">per month</h5>
+                    <canvas id="chartRM" class="bg-white"></canvas>
+                </div>
+                <div style="width: 450px; margin:auto;" class="mt-3">
+                    <h5 class="text-center">per year</h5>
+                    <canvas id="chartRY" class="bg-white"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript">
