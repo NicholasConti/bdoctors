@@ -93,7 +93,7 @@ class DoctorController extends Controller
         $spec = Specialization::all();
         $user = auth()->user();
         if ($doc->id === $user->doctor_id) return view('doctor.details', compact('doc', 'spec'));
-        return redirect()->route('doctor.dashboard')->with('problem', "Error");
+        return redirect()->route('doctor.dashboard')->with('problem', "Operation not allowed!");
     }
 
     /**
