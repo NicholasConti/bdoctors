@@ -90,7 +90,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->name }} {{ Auth::user()->surname }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -199,7 +199,7 @@
             <div><a class="icons" href="#"><i class="fa-brands fa-linkedin-in"></i></a></div>
         </div>
         <!-- /Icons -->
-        <h5 class="text-center py-3">www.bdoctors.it © 2023 - Prenota la tua visita online!</h5>
+        <h5 class="text-center py-3">www.bdoctors.it © 2023 - Book your online visit!</h5>
     </footer>
     <!-- /Main Container -->
 </body>

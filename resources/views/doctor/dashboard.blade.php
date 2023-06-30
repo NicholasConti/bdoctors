@@ -115,7 +115,7 @@
                             </div>
                             <div class="offcanvas-body">
                                 {{-- VOTES --}}
-                                <div>
+                                <div class="d-flex justify-content-around">
                                     <?php $mediaVoto = 0; ?>
                                     @foreach ($user->doctor->votes as $item)
                                         <?php $mediaVoto += $item->vote; ?>
@@ -124,7 +124,10 @@
                                         $mediaVoto = $mediaVoto / count($user->doctor->votes);
                                     } ?>
                                     <div class="d-inline-block">
-                                        <h5>Avg doctor vote: {{ $mediaVoto }}</h5>
+                                        <h5>Avg doctor vote: {{ number_format($mediaVoto, 2, '.', '') }}</h5>
+                                    </div>
+                                    <div class="d-inline-block">
+                                        <h5>Review numbers: {{ count($user->doctor->votes) }}</h5>
                                     </div>
                                 </div>
                                 {{-- REVIEWS --}}
