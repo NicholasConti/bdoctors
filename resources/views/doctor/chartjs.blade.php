@@ -5,6 +5,9 @@
 <div class="container ">
     <h2 class="text-light text-center mb-3">{{ __('Statistic charts') }}</h2>
 </div>    
+<div class="container">
+    <h3 class="text-light text-center mb-5">{{ __('Statistic charts') }}</h3>
+</div>
 {{-- Test per grafico dei trend --}}
 
 
@@ -131,7 +134,7 @@
                     arrReviewsYear[index]= element['count'];
                     return;
                 }
-            });  
+            });
         });
         //console.log(arrReviewsYear);
         const dataRY = {

@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 {{-- USER-LEFT-SIDE --}}
-                <div class="d-flex flex-column ">
+                <div class="d-flex flex-column">
                     <div
                         class="d-flex gap-2 mb-5 d-none d-md-block col-md-12 container-sm text-center border-bottom border-primary pb-3">
                         <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas"
@@ -95,15 +95,8 @@
                                                 </div>
                                                 <div class="px-1 py-1">
                                                     <h6>{{ $item->name }}</h6>
-                                                    <h6>{{ $key + 1 }} - {{ $item->text_message }}</h6>
+                                                    <h6>{{ $item->text_message }}</h6>
                                                 </div>
-
-                                            </div>
-                                            <div class="actions text-center py-2">
-                                                <a class="fw-bold bg-info text-light px-3 py-1 rounded me-2"
-                                                    href="#">Reply</a>
-                                                <a class="fw-bold bg-danger text-light px-3 py-1 rounded"
-                                                    href="#">Delete</a>
                                             </div>
                                         </div>
                                     @empty
@@ -122,7 +115,7 @@
                             </div>
                             <div class="offcanvas-body">
                                 {{-- VOTES --}}
-                                <div>
+                                <div class="d-flex justify-content-around">
                                     <?php $mediaVoto = 0; ?>
                                     @foreach ($user->doctor->votes as $item)
                                         <?php $mediaVoto += $item->vote; ?>
@@ -131,7 +124,10 @@
                                         $mediaVoto = $mediaVoto / count($user->doctor->votes);
                                     } ?>
                                     <div class="d-inline-block">
-                                        <h5>Avg doctor vote: {{ $mediaVoto }}</h5>
+                                        <h5>Avg doctor vote: {{ number_format($mediaVoto, 2, '.', '') }}</h5>
+                                    </div>
+                                    <div class="d-inline-block">
+                                        <h5>Review numbers: {{ count($user->doctor->votes) }}</h5>
                                     </div>
                                 </div>
                                 {{-- REVIEWS --}}
@@ -143,13 +139,7 @@
                                                 <h5 class="bg-info rounded text-center text-light pt-2">From: {{ $item->name }}</h5>
                                             </div>
                                             <div class="py-2 m-1">
-                                                <h6>{{ $key + 1 }} - {{ $item->text_review }}</h6>
-                                            </div>
-                                            <div class="actions text-center">
-                                                <a class="fw-bold bg-info text-light rounded px-3 py-1 me-2"
-                                                    href="#">Reply</a>
-                                                <a class="fw-bold bg-danger text-light rounded px-3 py-1"
-                                                    href="#">Delete</a>
+                                                <h6>{{ $item->text_review }}</h6>
                                             </div>
                                         </div>
                                     @empty
@@ -196,7 +186,7 @@
                                                                 <p class="title"><input type="radio" name="package"
                                                                         value=" {{ $sponsorship->id }}">
                                                                     {{ $sponsorship->name }}</p>
-                                                                <p class="info">This plan is valid for {{$sponsorship->duration}} hrs and you could add more sponsorship as you wish</p>
+                                                                <p class="info">This plan is valid for {{($sponsorship->duration)/24}} days</p>
                                                                 <ul class="features">
                                                                     <li>
                                                                         <span class="icon">
