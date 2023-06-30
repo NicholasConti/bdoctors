@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h2 class="fs-4 text-secondary my-4 text-light">
-            {{ __('My Message') }}
-        </h2>
+        <h3 class="fs-4  text-secondary mb-5 text-center text-light">
+            {{ __('My Messages') }}
+        </h3>
         <div class="row gy-4">
             @forelse ($message as $key=>$item)
                 <div class="col-12">

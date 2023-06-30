@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h2 class="text-light mb-5">{{ __('Statistic charts') }}</h2>
+    <h3 class="text-light text-center mb-5">{{ __('Statistic charts') }}</h3>
 </div>
 {{-- Test per grafico dei trend --}}
 <div style="width: 600px; margin: auto;">
