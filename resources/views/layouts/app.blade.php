@@ -26,7 +26,7 @@
 
 <body>
     <div id="app">
-        <nav class="header navbar navbar-expand-md navbar-light">
+        <nav class="header navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('http://localhost:5174/') }}">
                     <div class="logo_laravel">
@@ -49,8 +49,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto me-auto gap-3 text-uppercase">
+                    <ul class="navbar-nav ms-auto text-uppercase gap-4 me-auto">
                         {{-- mostra i due link se è un dottore autenticato --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="http://localhost:5174/">{{ __('Home') }}</a>
+                        </li>
                         @if (!auth()->user() || !auth()->user()->doctor)
                             {{-- <li class="nav-item d-none">
                                 <a class="nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
@@ -60,13 +63,7 @@
                             </li> --}}
                         @else()
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:5174/">{{ __('Home') }}</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('doctor.message') }}">{{ __('Messages') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('doctor.statistics') }}">{{ __('Statistics') }}</a>
@@ -94,30 +91,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item"
-                                        href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
-                                    {{-- <a class="dropdown-item" href="{{ route('admin.') }}">{{__('Profile')}}</a> --}}
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a class="dropdown-item" href="{{ route('doctor.message') }}">{{ __('Messages') }}</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> 
+                                        {{ __('Logout') }} 
                                     </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item"
-                                            href="{{ route('doctor.dashboard') }}">{{ __('Dashboard') }}</a>
-                                        {{-- <a class="dropdown-item" href="{{ route('admin.') }}">{{__('Profile')}}</a> --}}
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                    </form>
                                 </div>
                             </li>
                         @endguest
