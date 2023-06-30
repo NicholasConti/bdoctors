@@ -51,7 +51,7 @@
             <div class="offcanvas-header d-flex justify-content-center h-25">
                 <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Votes</h3>
             </div>
-            <div class="offcanvas-body d-flex  align-items-center h-75">
+            <div class="offcanvas-body d-flex  align-items-center flex-wrap h-75">
                 <div style="width: 450px; margin:auto;" class="mt-3">
                     <h5 class="text-center">per month</h5>
                     <canvas id="chartVM" class="bg-white"></canvas>
@@ -69,7 +69,7 @@
             <div class="offcanvas-header d-flex justify-content-center h-25">
                 <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Reviews</h3>
             </div>
-            <div class="offcanvas-body d-flex align-items-center h-75">
+            <div class="offcanvas-body d-flex align-items-center flex-wrap h-75">
                 <div style="width: 450px; margin: auto;" class="mt-3">
                     <h5 class="text-center">per month</h5>
                     <canvas id="chartRM" class="bg-white"></canvas>
