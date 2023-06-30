@@ -5,14 +5,11 @@
 <div class="container ">
     <h2 class="text-light text-center mb-3">{{ __('Statistic charts') }}</h2>
 </div>    
-<div class="container">
-    <h3 class="text-light text-center mb-5">{{ __('Statistic charts') }}</h3>
-</div>
+
 {{-- Test per grafico dei trend --}}
 
 
-    <div
-            class="d-flex gap-2 mb-5 d-none d-md-block col-md-12 container-sm text-center border-bottom border-primary pb-3">
+    <div class="d-flex justify-content-center gap-2 mb-5 col-md-12 container-sm text-center border-bottom border-primary pb-3">
         <button class="btn btn_color m-1" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasMessages" aria-controls="offcanvasScrolling">
         <span><i class="fa-solid fa-message pe-2"></i>Messages</span>
@@ -35,7 +32,7 @@
             <div class="offcanvas-header d-flex justify-content-center h-25">
                 <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Messages</h3>
             </div>
-            <div class="offcanvas-body d-flex  align-items-center h-75">
+            <div class="offcanvas-body d-flex  align-items-center flex-wrap h-75">
                 <div style="width: 450px; margin:auto;" class="mt-3">
                     <h5 class="text-center">per month</h5>
                     <canvas id="chartMM" class="bg-white"></canvas>
